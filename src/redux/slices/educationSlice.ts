@@ -31,7 +31,7 @@ const initialState: EducationState = {
       duration: 8,
       points: 20,
       thumbnailUrl: "https://images.unsplash.com/photo-1546548970-71785318a17b?w=800&auto=format&fit=crop&q=60",
-      content: "https://www.youtube.com/watch?v=dummyvideo1",
+      content: "https://www.youtube.com/watch?v=FTociictyyE",
       tags: ["storage", "beginner", "kitchen"],
       completedBy: []
     },
@@ -55,7 +55,7 @@ const initialState: EducationState = {
       duration: 12,
       points: 25,
       thumbnailUrl: "https://images.unsplash.com/photo-1505935428862-770b6f24f629?w=800&auto=format&fit=crop&q=60",
-      content: "https://www.youtube.com/watch?v=dummyvideo2",
+      content: "https://www.youtube.com/watch?v=zZVdnAgYUps",
       tags: ["meal planning", "kitchen", "budget"],
       completedBy: []
     },
@@ -69,6 +69,18 @@ const initialState: EducationState = {
       thumbnailUrl: "https://images.unsplash.com/photo-1584473457493-17c4c24290d2?w=800&auto=format&fit=crop&q=60",
       content: "quiz content here",
       tags: ["quiz", "knowledge test", "learning"],
+      completedBy: []
+    },
+    {
+      id: "edu-5",
+      title: "Sustainability in Food Systems",
+      description: "Learn about the environmental impact of our food choices and how to make sustainable decisions.",
+      type: "video",
+      duration: 15,
+      points: 25,
+      thumbnailUrl: "https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&auto=format&fit=crop",
+      content: "https://www.youtube.com/watch?v=8dUjy1aldGU",
+      tags: ["sustainability", "environment", "food systems"],
       completedBy: []
     }
   ],

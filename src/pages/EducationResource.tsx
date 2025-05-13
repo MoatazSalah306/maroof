@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { useAppSelector, useAppDispatch } from "@/redux/hooks";
 import { Button } from "@/components/ui/button";
@@ -153,7 +153,7 @@ const EducationResource = () => {
                   ></iframe>
                 ) : (
                   <div className="flex items-center justify-center w-full h-full">
-                    <p className="text-muted-foreground">Video player would be here</p>
+                    <p className="text-muted-foreground">Video could not be loaded</p>
                   </div>
                 )}
               </AspectRatio>
