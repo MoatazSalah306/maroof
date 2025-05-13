@@ -1,9 +1,22 @@
 
-import React, { createContext, useContext, useState, useEffect } from "react";
-import { AuthState, User } from "@/lib/types";
+import React, { createContext, useContext } from "react";
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { User } from '@/lib/types';
+import { 
+  loginStart, loginSuccess, loginFailure,
+  registerStart, registerSuccess, registerFailure,
+  updateUserStart, updateUserSuccess, updateUserFailure,
+  logout
+} from '@/redux/slices/authSlice';
 import { useToast } from "@/components/ui/use-toast";
+import { addActivity } from "@/redux/slices/activitiesSlice";
+import { setUserDonations, setUserClaims } from "@/redux/slices/donationsSlice";
+import { setUserCompletedResources } from "@/redux/slices/educationSlice";
 
-interface AuthContextType extends AuthState {
+interface AuthContextType {
+  user: User | null;
+  isLoading: boolean;
+  error: string | null;
   login: (email: string, password: string) => Promise<void>;
   register: (userData: Partial<User>, password: string) => Promise<void>;
   logout: () => void;
@@ -13,54 +26,18 @@ interface AuthContextType extends AuthState {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [auth, setAuth] = useState<AuthState>({
-    user: null,
-    isLoading: true,
-    error: null,
-  });
+  const dispatch = useAppDispatch();
+  const { user, isLoading, error } = useAppSelector(state => state.auth);
   const { toast } = useToast();
 
-  // Check for user on load
-  useEffect(() => {
-    const checkAuthState = () => {
-      const storedUser = localStorage.getItem("nemaUser");
-      if (storedUser) {
-        try {
-          setAuth({
-            user: JSON.parse(storedUser),
-            isLoading: false,
-            error: null,
-          });
-        } catch (error) {
-          console.error("Failed to parse user data", error);
-          localStorage.removeItem("nemaUser");
-          setAuth({
-            user: null,
-            isLoading: false,
-            error: "Invalid session data",
-          });
-        }
-      } else {
-        setAuth({
-          user: null,
-          isLoading: false,
-          error: null,
-        });
-      }
-    };
-
-    checkAuthState();
-  }, []);
-
-  // Mock login function (would be replaced with actual API)
+  // Login function
   const login = async (email: string, password: string) => {
-    setAuth({ ...auth, isLoading: true, error: null });
+    dispatch(loginStart());
     
     try {
-      // Simulate API request
+      // Mock login - would be replaced with API call
       await new Promise(resolve => setTimeout(resolve, 1000));
       
-      // This is just a mock implementation
       if (email === "demo@example.com" && password === "password") {
         const mockUser: User = {
           id: "user-1",
@@ -72,22 +49,19 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           createdAt: new Date(),
         };
         
-        localStorage.setItem("nemaUser", JSON.stringify(mockUser));
-        setAuth({
-          user: mockUser,
-          isLoading: false,
-          error: null,
-        });
+        dispatch(loginSuccess(mockUser));
+        
+        // Load user-specific data
+        dispatch(setUserDonations(mockUser.id));
+        dispatch(setUserClaims(mockUser.id));
+        dispatch(setUserCompletedResources(mockUser.id));
+        
         toast({
           title: "Login successful",
           description: "Welcome to Ne'ma!",
         });
       } else {
-        setAuth({
-          user: null,
-          isLoading: false,
-          error: "Invalid email or password",
-        });
+        dispatch(loginFailure("Invalid email or password"));
         toast({
           title: "Login failed",
           description: "Invalid email or password",
@@ -96,11 +70,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       }
     } catch (error) {
       console.error("Login error", error);
-      setAuth({
-        user: null,
-        isLoading: false,
-        error: "Failed to login. Please try again later.",
-      });
+      dispatch(loginFailure("Failed to login. Please try again later."));
       toast({
         title: "Login failed",
         description: "Something went wrong. Please try again.",
@@ -109,9 +79,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
-  // Mock register function (would be replaced with actual API)
+  // Register function
   const register = async (userData: Partial<User>, password: string) => {
-    setAuth({ ...auth, isLoading: true, error: null });
+    dispatch(registerStart());
     
     try {
       // Simulate API request
@@ -127,23 +97,30 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         createdAt: new Date(),
       };
       
-      localStorage.setItem("nemaUser", JSON.stringify(newUser));
-      setAuth({
-        user: newUser,
-        isLoading: false,
-        error: null,
-      });
+      dispatch(registerSuccess(newUser));
+      
+      // Add welcome activity
+      dispatch(addActivity({
+        id: `activity-${Date.now()}`,
+        userId: newUser.id,
+        type: "education",
+        description: "Joined Ne'ma - Welcome!",
+        points: 20,
+        timestamp: new Date()
+      }));
+      
+      // Set user collections
+      dispatch(setUserDonations(newUser.id));
+      dispatch(setUserClaims(newUser.id));
+      dispatch(setUserCompletedResources(newUser.id));
+      
       toast({
         title: "Registration successful",
         description: "Welcome to Ne'ma! Your journey to reduce food waste begins now.",
       });
     } catch (error) {
       console.error("Registration error", error);
-      setAuth({
-        user: null,
-        isLoading: false,
-        error: "Failed to register. Please try again later.",
-      });
+      dispatch(registerFailure("Failed to register. Please try again later."));
       toast({
         title: "Registration failed",
         description: "Something went wrong. Please try again.",
@@ -152,40 +129,31 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
-  // Mock update user function
+  // Update user function
   const updateUser = async (userData: Partial<User>) => {
-    if (!auth.user) {
+    if (!user) {
       throw new Error("No user logged in");
     }
     
-    setAuth({ ...auth, isLoading: true });
+    dispatch(updateUserStart());
     
     try {
       // Simulate API request
       await new Promise(resolve => setTimeout(resolve, 1000));
       
       const updatedUser = {
-        ...auth.user,
+        ...user,
         ...userData,
       };
       
-      localStorage.setItem("nemaUser", JSON.stringify(updatedUser));
-      setAuth({
-        user: updatedUser,
-        isLoading: false,
-        error: null,
-      });
+      dispatch(updateUserSuccess(updatedUser));
       toast({
         title: "Profile updated",
         description: "Your profile has been updated successfully.",
       });
     } catch (error) {
       console.error("Update user error", error);
-      setAuth({
-        ...auth,
-        isLoading: false,
-        error: "Failed to update profile",
-      });
+      dispatch(updateUserFailure("Failed to update profile"));
       toast({
         title: "Update failed",
         description: "Failed to update your profile. Please try again.",
@@ -195,13 +163,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   };
 
   // Logout function
-  const logout = () => {
-    localStorage.removeItem("nemaUser");
-    setAuth({
-      user: null,
-      isLoading: false,
-      error: null,
-    });
+  const logoutUser = () => {
+    dispatch(logout());
     toast({
       title: "Logged out",
       description: "You have been successfully logged out.",
@@ -209,10 +172,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   };
 
   const value = {
-    ...auth,
+    user,
+    isLoading,
+    error,
     login,
     register,
-    logout,
+    logout: logoutUser,
     updateUser,
   };
 

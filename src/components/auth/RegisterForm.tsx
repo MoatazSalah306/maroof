@@ -23,6 +23,7 @@ import {
 } from "@/components/ui/select";
 import { useAuth } from "@/lib/auth.context";
 import { Checkbox } from "@/components/ui/checkbox";
+import { useAppSelector } from "@/redux/hooks";
 
 const registerSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -42,7 +43,8 @@ const registerSchema = z.object({
 type RegisterFormValues = z.infer<typeof registerSchema>;
 
 const RegisterForm = () => {
-  const { register, isLoading, error } = useAuth();
+  const { register } = useAuth();
+  const { isLoading, error } = useAppSelector(state => state.auth);
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const [showPassword, setShowPassword] = useState(false);

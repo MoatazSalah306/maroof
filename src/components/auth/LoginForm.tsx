@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useAuth } from "@/lib/auth.context";
+import { useAppSelector } from "@/redux/hooks";
 
 const loginSchema = z.object({
   email: z.string().email("Please enter a valid email address"),
@@ -24,7 +25,8 @@ const loginSchema = z.object({
 type LoginFormValues = z.infer<typeof loginSchema>;
 
 const LoginForm = () => {
-  const { login, isLoading, error } = useAuth();
+  const { login } = useAuth();
+  const { isLoading, error } = useAppSelector(state => state.auth);
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
 

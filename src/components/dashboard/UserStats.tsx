@@ -1,10 +1,10 @@
 
-import { useAuth } from "@/lib/auth.context";
 import { Award, Gift, Flame, Clock } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
+import { useAppSelector } from "@/redux/hooks";
 
 const UserStats = () => {
-  const { user } = useAuth();
+  const { user } = useAppSelector(state => state.auth);
   
   if (!user) return null;
   

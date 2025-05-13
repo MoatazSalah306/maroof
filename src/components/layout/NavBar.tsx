@@ -9,18 +9,15 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
+import { useAuth } from "@/lib/auth.context";
+import { useAppSelector } from "@/redux/hooks";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
-  
-  // Check auth status - will be replaced with actual auth
-  useEffect(() => {
-    const user = localStorage.getItem("nemaUser");
-    setIsLoggedIn(!!user);
-  }, []);
+  const { logout } = useAuth();
+  const { user } = useAppSelector(state => state.auth);
 
   // Handle scroll effect for navbar
   useEffect(() => {
@@ -35,13 +32,6 @@ const NavBar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  // Logout function
-  const handleLogout = () => {
-    localStorage.removeItem("nemaUser");
-    setIsLoggedIn(false);
-    // Will be replaced with actual logout
-  };
 
   return (
     <header 
@@ -67,7 +57,7 @@ const NavBar = () => {
 
           {/* Auth Buttons or User Menu */}
           <div className="hidden md:flex items-center gap-3">
-            {isLoggedIn ? (
+            {user ? (
               <div className="flex items-center gap-3">
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
@@ -82,7 +72,7 @@ const NavBar = () => {
                     <DropdownMenuItem asChild>
                       <Link to="/profile" className="cursor-pointer">Profile</Link>
                     </DropdownMenuItem>
-                    <DropdownMenuItem onClick={handleLogout} className="cursor-pointer">
+                    <DropdownMenuItem onClick={logout} className="cursor-pointer">
                       <LogOut className="mr-2 h-4 w-4" />
                       Logout
                     </DropdownMenuItem>
@@ -123,7 +113,7 @@ const NavBar = () => {
               <MobileNavLink to="/learn" onClick={() => setIsMenuOpen(false)}>Learn</MobileNavLink>
               <MobileNavLink to="/impact" onClick={() => setIsMenuOpen(false)}>Our Impact</MobileNavLink>
               
-              {isLoggedIn ? (
+              {user ? (
                 <>
                   <MobileNavLink to="/dashboard" onClick={() => setIsMenuOpen(false)}>Dashboard</MobileNavLink>
                   <MobileNavLink to="/profile" onClick={() => setIsMenuOpen(false)}>Profile</MobileNavLink>
@@ -131,7 +121,7 @@ const NavBar = () => {
                     variant="ghost"
                     className="justify-start px-0 hover:bg-transparent" 
                     onClick={() => {
-                      handleLogout();
+                      logout();
                       setIsMenuOpen(false);
                     }}
                   >
