@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, User, LogOut } from "lucide-react";
+import { Menu, X, User, LogOut, Moon, Sun } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,13 +11,15 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { useAuth } from "@/lib/auth.context";
 import { useAppSelector } from "@/redux/hooks";
+import { Switch } from "@/components/ui/switch";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
-  const { logout } = useAuth();
+  const { logout, userPreferences, updatePreferences } = useAuth();
   const { user } = useAppSelector(state => state.auth);
+  const isDarkMode = userPreferences.theme === 'dark';
 
   // Handle scroll effect for navbar
   useEffect(() => {
@@ -32,6 +34,10 @@ const NavBar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleThemeToggle = () => {
+    updatePreferences({ theme: isDarkMode ? 'light' : 'dark' });
+  };
 
   return (
     <header 
@@ -57,6 +63,16 @@ const NavBar = () => {
 
           {/* Auth Buttons or User Menu */}
           <div className="hidden md:flex items-center gap-3">
+            {/* Theme Toggle */}
+            <div className="flex items-center gap-2 mr-2">
+              <Sun className="h-4 w-4" />
+              <Switch 
+                checked={isDarkMode}
+                onCheckedChange={handleThemeToggle}
+              />
+              <Moon className="h-4 w-4" />
+            </div>
+
             {user ? (
               <div className="flex items-center gap-3">
                 <DropdownMenu>
@@ -92,7 +108,17 @@ const NavBar = () => {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center gap-3">
+            {/* Mobile Theme Toggle */}
+            <div className="flex items-center gap-1">
+              <Switch 
+                checked={isDarkMode} 
+                onCheckedChange={handleThemeToggle}
+                size="sm"
+              />
+              {isDarkMode ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
+            </div>
+            
             <Button
               variant="ghost"
               size="icon"

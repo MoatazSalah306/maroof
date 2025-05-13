@@ -10,6 +10,7 @@ import { markResourceAsCompleted } from "@/redux/slices/educationSlice";
 import { addActivity } from "@/redux/slices/activitiesSlice";
 import { addUserPoints } from "@/redux/slices/authSlice";
 import { useToast } from "@/hooks/use-toast";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const EducationResource = () => {
   const { resourceId } = useParams<{ resourceId: string }>();
@@ -22,7 +23,7 @@ const EducationResource = () => {
   
   // Find the resource
   const resource = resources.find(r => r.id === resourceId);
-  const isCompleted = userCompletedResources.includes(resourceId || "");
+  const isCompleted = userCompletedResources?.includes(resourceId || "") || false;
   
   // If resource not found
   if (!resource) {
@@ -84,6 +85,14 @@ const EducationResource = () => {
     }
   };
   
+  // Extract YouTube video ID from YouTube URL
+  const getYoutubeVideoId = (url: string) => {
+    if (!url) return null;
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    const match = url.match(regExp);
+    return (match && match[2].length === 11) ? match[2] : null;
+  };
+  
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="max-w-4xl mx-auto">
@@ -132,18 +141,22 @@ const EducationResource = () => {
         {/* Resource Content */}
         <div className="border rounded-lg overflow-hidden mb-8">
           {resource.type === 'video' && (
-            <div className="aspect-video bg-muted flex items-center justify-center">
-              <p className="text-muted-foreground">Video player would be here</p>
-              {/* In a real implementation, this would be a video player component */}
-              {/* <iframe
-                width="100%"
-                height="100%"
-                src={resource.content}
-                title={resource.title}
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe> */}
+            <div className="bg-muted">
+              <AspectRatio ratio={16/9}>
+                {getYoutubeVideoId(resource.content) ? (
+                  <iframe
+                    src={`https://www.youtube.com/embed/${getYoutubeVideoId(resource.content)}`}
+                    title={resource.title}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="w-full h-full"
+                  ></iframe>
+                ) : (
+                  <div className="flex items-center justify-center w-full h-full">
+                    <p className="text-muted-foreground">Video player would be here</p>
+                  </div>
+                )}
+              </AspectRatio>
             </div>
           )}
           

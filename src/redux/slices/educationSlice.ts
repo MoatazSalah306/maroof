@@ -31,7 +31,7 @@ const initialState: EducationState = {
       duration: 8,
       points: 20,
       thumbnailUrl: "https://images.unsplash.com/photo-1546548970-71785318a17b?w=800&auto=format&fit=crop&q=60",
-      content: "https://www.youtube.com/watch?v=example",
+      content: "https://www.youtube.com/watch?v=dummyvideo1",
       tags: ["storage", "beginner", "kitchen"],
       completedBy: []
     },
@@ -55,7 +55,7 @@ const initialState: EducationState = {
       duration: 12,
       points: 25,
       thumbnailUrl: "https://images.unsplash.com/photo-1505935428862-770b6f24f629?w=800&auto=format&fit=crop&q=60",
-      content: "https://www.youtube.com/watch?v=example2",
+      content: "https://www.youtube.com/watch?v=dummyvideo2",
       tags: ["meal planning", "kitchen", "budget"],
       completedBy: []
     },
