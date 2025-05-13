@@ -23,7 +23,10 @@ const StatCard = ({ title, value, description, icon }: { title: string, value: s
 const Impact = () => {
   const { userDonations } = useAppSelector(state => state.donations);
   const { activities } = useAppSelector(state => state.activities);
-  const { completedResources } = useAppSelector(state => state.education);
+  const educationState = useAppSelector(state => state.education);
+  
+  // Safely access completedResources with a fallback to empty array
+  const completedResources = educationState?.userCompletedResources || [];
   
   // Get collective impact stats from localStorage (example data for now)
   const { getValue } = useLocalStorage('impact-stats', {
@@ -37,8 +40,10 @@ const Impact = () => {
   
   const stats = getValue();
   
-  // Calculate user's personal contribution
-  const userDonationsWeight = userDonations.reduce((total, donation) => total + (donation.quantity || 0), 0);
+  // Calculate user's personal contribution - add null checks
+  const userDonationsWeight = Array.isArray(userDonations) 
+    ? userDonations.reduce((total, donation) => total + (donation.quantity || 0), 0)
+    : 0;
   const userMealsDonated = Math.floor(userDonationsWeight / 0.5); // Assuming 0.5kg = 1 meal
   const userCo2Prevented = Math.floor(userDonationsWeight * 3); // 1kg food waste ≈ 3kg CO2
   const userWaterSaved = Math.floor(userDonationsWeight * 5000); // 1kg food ≈ 5000L water
@@ -139,7 +144,7 @@ const Impact = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <StatCard 
               title="Your Donations"
-              value={userDonations.length.toString()}
+              value={Array.isArray(userDonations) ? userDonations.length.toString() : "0"}
               description="Total donations made"
               icon={<span>🎁</span>}
             />
@@ -169,7 +174,7 @@ const Impact = () => {
               <CardDescription>Your journey in food waste reduction</CardDescription>
             </CardHeader>
             <CardContent>
-              {activities.length > 0 ? (
+              {Array.isArray(activities) && activities.length > 0 ? (
                 <div className="space-y-4">
                   {activities.map((activity) => (
                     <div key={activity.id} className="border-l-2 border-nema-green pl-4 py-2">
