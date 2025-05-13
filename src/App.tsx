@@ -17,6 +17,7 @@ import DonateFood from "./pages/DonateFood";
 import Education from "./pages/Education";
 import EducationResource from "./pages/EducationResource";
 import Profile from "./pages/Profile";
+import Impact from "./pages/Impact";
 import RequireAuth from "./components/auth/RequireAuth";
 
 const queryClient = new QueryClient();
@@ -49,6 +50,7 @@ const App = () => (
                     <Profile />
                   </RequireAuth>
                 } />
+                <Route path="impact" element={<Impact />} />
               </Route>
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />

@@ -1,5 +1,5 @@
 
-import React, { createContext, useContext } from "react";
+import React, { createContext, useContext, useEffect } from "react";
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { User } from '@/lib/types';
 import { 
@@ -12,6 +12,7 @@ import { useToast } from "@/components/ui/use-toast";
 import { addActivity } from "@/redux/slices/activitiesSlice";
 import { setUserDonations, setUserClaims } from "@/redux/slices/donationsSlice";
 import { setUserCompletedResources } from "@/redux/slices/educationSlice";
+import { useLocalStorage } from "@/hooks/useLocalStorage";
 
 interface AuthContextType {
   user: User | null;
@@ -21,7 +22,21 @@ interface AuthContextType {
   register: (userData: Partial<User>, password: string) => Promise<void>;
   logout: () => void;
   updateUser: (userData: Partial<User>) => Promise<void>;
+  userPreferences: UserPreferences;
+  updatePreferences: (preferences: Partial<UserPreferences>) => void;
 }
+
+export interface UserPreferences {
+  theme: 'light' | 'dark' | 'system';
+  notifications: boolean;
+  language: string;
+}
+
+const defaultPreferences: UserPreferences = {
+  theme: 'system',
+  notifications: true,
+  language: 'en',
+};
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
@@ -29,6 +44,41 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const dispatch = useAppDispatch();
   const { user, isLoading, error } = useAppSelector(state => state.auth);
   const { toast } = useToast();
+  
+  // Setup localStorage for user preferences
+  const { getValue: getStoredPreferences, setValue: setStoredPreferences } = 
+    useLocalStorage<UserPreferences>('user-preferences', defaultPreferences);
+  
+  const [userPreferences, setUserPreferences] = React.useState<UserPreferences>(getStoredPreferences());
+  
+  // Apply theme preference
+  useEffect(() => {
+    if (userPreferences.theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else if (userPreferences.theme === 'light') {
+      document.documentElement.classList.remove('dark');
+    } else {
+      // System preference
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    }
+  }, [userPreferences.theme]);
+
+  const updatePreferences = (preferences: Partial<UserPreferences>) => {
+    const newPreferences = {
+      ...userPreferences,
+      ...preferences
+    };
+    setUserPreferences(newPreferences);
+    setStoredPreferences(newPreferences);
+    toast({
+      title: "Preferences updated",
+      description: "Your preferences have been saved.",
+    });
+  };
 
   // Login function
   const login = async (email: string, password: string) => {
@@ -55,6 +105,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         dispatch(setUserDonations(mockUser.id));
         dispatch(setUserClaims(mockUser.id));
         dispatch(setUserCompletedResources(mockUser.id));
+        
+        // Store in localStorage as well for redundancy
+        localStorage.setItem('user', JSON.stringify(mockUser));
         
         toast({
           title: "Login successful",
@@ -98,6 +151,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       };
       
       dispatch(registerSuccess(newUser));
+      
+      // Also store in localStorage for redundancy
+      localStorage.setItem('user', JSON.stringify(newUser));
       
       // Add welcome activity
       dispatch(addActivity({
@@ -147,6 +203,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       };
       
       dispatch(updateUserSuccess(updatedUser));
+      
+      // Update in localStorage as well
+      localStorage.setItem('user', JSON.stringify(updatedUser));
+      
       toast({
         title: "Profile updated",
         description: "Your profile has been updated successfully.",
@@ -165,11 +225,35 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   // Logout function
   const logoutUser = () => {
     dispatch(logout());
+    localStorage.removeItem('user');
     toast({
       title: "Logged out",
       description: "You have been successfully logged out.",
     });
   };
+
+  // Check for user in localStorage on initial load
+  useEffect(() => {
+    if (!user) {
+      try {
+        const storedUser = localStorage.getItem('user');
+        if (storedUser) {
+          const parsedUser = JSON.parse(storedUser);
+          // Validate user data
+          if (parsedUser && parsedUser.id && parsedUser.email) {
+            // Restore user from localStorage
+            dispatch(loginSuccess(parsedUser));
+            // Load user-specific data
+            dispatch(setUserDonations(parsedUser.id));
+            dispatch(setUserClaims(parsedUser.id));
+            dispatch(setUserCompletedResources(parsedUser.id));
+          }
+        }
+      } catch (error) {
+        console.error("Error restoring user from localStorage:", error);
+      }
+    }
+  }, []);
 
   const value = {
     user,
@@ -179,6 +263,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     register,
     logout: logoutUser,
     updateUser,
+    userPreferences,
+    updatePreferences,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

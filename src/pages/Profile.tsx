@@ -22,11 +22,13 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { useAppSelector, useAppDispatch } from "@/redux/hooks";
+import { useAppSelector } from "@/redux/hooks";
 import { useAuth } from "@/lib/auth.context";
-import { Award, MapPin, Calendar } from "lucide-react";
+import { Award, MapPin, Calendar, Settings, Bell, Globe, Moon, Sun, Laptop } from "lucide-react";
+import { Switch } from "@/components/ui/switch";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const profileSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -35,6 +37,101 @@ const profileSchema = z.object({
 });
 
 type ProfileFormValues = z.infer<typeof profileSchema>;
+
+// Create a component for the preferences tab
+const PreferencesTab = () => {
+  const { userPreferences, updatePreferences } = useAuth();
+  
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>App Preferences</CardTitle>
+        <CardDescription>
+          Customize your app experience
+        </CardDescription>
+      </CardHeader>
+      <CardContent className="space-y-6">
+        <div className="space-y-3">
+          <h3 className="text-lg font-medium">Appearance</h3>
+          <div className="flex items-center justify-between">
+            <div className="flex flex-col gap-1">
+              <span className="font-medium">Theme</span>
+              <span className="text-sm text-muted-foreground">Choose your preferred theme</span>
+            </div>
+            <Select
+              value={userPreferences.theme}
+              onValueChange={(value) => updatePreferences({ theme: value as 'light' | 'dark' | 'system' })}
+            >
+              <SelectTrigger className="w-[180px]">
+                <SelectValue placeholder="Select theme" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="light" className="flex items-center gap-2">
+                  <Sun className="h-4 w-4" />
+                  <span>Light</span>
+                </SelectItem>
+                <SelectItem value="dark" className="flex items-center gap-2">
+                  <Moon className="h-4 w-4" />
+                  <span>Dark</span>
+                </SelectItem>
+                <SelectItem value="system" className="flex items-center gap-2">
+                  <Laptop className="h-4 w-4" />
+                  <span>System</span>
+                </SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+        </div>
+        
+        <div className="space-y-3">
+          <h3 className="text-lg font-medium">Notifications</h3>
+          <div className="flex items-center justify-between">
+            <div className="flex flex-col gap-1">
+              <span className="font-medium">Enable notifications</span>
+              <span className="text-sm text-muted-foreground">Receive notifications about your account</span>
+            </div>
+            <Switch 
+              checked={userPreferences.notifications}
+              onCheckedChange={(checked) => updatePreferences({ notifications: checked })}
+            />
+          </div>
+        </div>
+        
+        <div className="space-y-3">
+          <h3 className="text-lg font-medium">Language</h3>
+          <div className="flex items-center justify-between">
+            <div className="flex flex-col gap-1">
+              <span className="font-medium">Display language</span>
+              <span className="text-sm text-muted-foreground">Select your preferred language</span>
+            </div>
+            <Select
+              value={userPreferences.language}
+              onValueChange={(value) => updatePreferences({ language: value })}
+            >
+              <SelectTrigger className="w-[180px]">
+                <SelectValue placeholder="Select language" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="en" className="flex items-center gap-2">
+                  <Globe className="h-4 w-4" />
+                  <span>English</span>
+                </SelectItem>
+                <SelectItem value="ar" className="flex items-center gap-2">
+                  <Globe className="h-4 w-4" />
+                  <span>Arabic</span>
+                </SelectItem>
+                <SelectItem value="fr" className="flex items-center gap-2">
+                  <Globe className="h-4 w-4" />
+                  <span>French</span>
+                </SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  );
+};
 
 const Profile = () => {
   const { user } = useAppSelector(state => state.auth);
@@ -85,9 +182,17 @@ const Profile = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="lg:col-span-1">
           <Card>
-            <CardHeader className="pb-3">
-              <CardTitle>User Information</CardTitle>
-              <CardDescription>Your account details and progress</CardDescription>
+            <CardHeader className="pb-3 flex flex-row items-center space-x-4">
+              <Avatar className="h-16 w-16">
+                <AvatarImage src={user?.avatar} alt={user?.name} />
+                <AvatarFallback className="bg-nema-green text-white text-xl">
+                  {user?.name?.charAt(0) || "U"}
+                </AvatarFallback>
+              </Avatar>
+              <div>
+                <CardTitle>{user?.name}</CardTitle>
+                <CardDescription>{user?.email}</CardDescription>
+              </div>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
@@ -129,9 +234,10 @@ const Profile = () => {
         
         <div className="lg:col-span-2">
           <Tabs defaultValue="account">
-            <TabsList className="grid w-full grid-cols-2">
+            <TabsList className="grid w-full grid-cols-3">
               <TabsTrigger value="account">Account</TabsTrigger>
               <TabsTrigger value="activity">Activity</TabsTrigger>
+              <TabsTrigger value="preferences">Preferences</TabsTrigger>
             </TabsList>
             
             <TabsContent value="account" className="mt-6">
@@ -282,6 +388,10 @@ const Profile = () => {
                   )}
                 </CardContent>
               </Card>
+            </TabsContent>
+            
+            <TabsContent value="preferences" className="mt-6">
+              <PreferencesTab />
             </TabsContent>
           </Tabs>
         </div>
