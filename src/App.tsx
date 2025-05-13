@@ -4,9 +4,6 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Provider } from 'react-redux';
-import { PersistGate } from 'redux-persist/integration/react';
-import { store, persistor } from './redux/store';
 import Layout from "./components/layout/Layout";
 import Index from "./pages/Index";
 import Login from "./pages/Login";
@@ -23,44 +20,40 @@ import RequireAuth from "./components/auth/RequireAuth";
 const queryClient = new QueryClient();
 
 const App = () => (
-  <Provider store={store}>
-    <PersistGate loading={null} persistor={persistor}>
-      <QueryClientProvider client={queryClient}>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Layout />}>
-                <Route index element={<Index />} />
-                <Route path="dashboard" element={
-                  <RequireAuth>
-                    <Dashboard />
-                  </RequireAuth>
-                } />
-                <Route path="donate" element={
-                  <RequireAuth>
-                    <DonateFood />
-                  </RequireAuth>
-                } />
-                <Route path="learn" element={<Education />} />
-                <Route path="learn/:resourceId" element={<EducationResource />} />
-                <Route path="profile" element={
-                  <RequireAuth>
-                    <Profile />
-                  </RequireAuth>
-                } />
-                <Route path="impact" element={<Impact />} />
-              </Route>
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </BrowserRouter>
-        </TooltipProvider>
-      </QueryClientProvider>
-    </PersistGate>
-  </Provider>
+  <QueryClientProvider client={queryClient}>
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Index />} />
+            <Route path="dashboard" element={
+              <RequireAuth>
+                <Dashboard />
+              </RequireAuth>
+            } />
+            <Route path="donate" element={
+              <RequireAuth>
+                <DonateFood />
+              </RequireAuth>
+            } />
+            <Route path="learn" element={<Education />} />
+            <Route path="learn/:resourceId" element={<EducationResource />} />
+            <Route path="profile" element={
+              <RequireAuth>
+                <Profile />
+              </RequireAuth>
+            } />
+            <Route path="impact" element={<Impact />} />
+          </Route>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </TooltipProvider>
+  </QueryClientProvider>
 );
 
 export default App;
