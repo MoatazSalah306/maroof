@@ -29,9 +29,9 @@ const HowItWorksSection = () => {
     <section className="py-16 bg-muted">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <h2 className="text-3xl font-bold mb-4">How It Works</h2>
+          <h2 className="text-3xl font-bold mb-4 text-foreground">How It Works</h2>
           <p className="text-muted-foreground">
-            Ne'ma makes it easy to reduce food waste while helping those in need. Follow these simple steps to get started.
+            Ma'roof makes it easy to reduce food waste while helping those in need. Follow these simple steps to get started.
           </p>
         </div>
 
@@ -50,7 +50,7 @@ const HowItWorksSection = () => {
                     {index + 1}
                   </span>
                 </div>
-                <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
+                <h3 className="text-xl font-semibold mb-2 text-card-foreground">{step.title}</h3>
                 <p className="text-muted-foreground">{step.description}</p>
               </div>
             ))}

@@ -49,7 +49,7 @@ const NavBar = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <span className="text-nema-green font-bold text-2xl">Ne'ma</span>
+            <span className="text-nema-green font-bold text-2xl">Ma'roof</span>
           </Link>
 
           {/* Desktop Menu */}

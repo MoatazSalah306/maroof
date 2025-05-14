@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 
 const HeroSection = () => {
   return (
-    <div className="relative overflow-hidden bg-gradient-to-b from-nema-cream to-white">
+    <div className="relative overflow-hidden bg-gradient-to-b from-nema-cream to-white dark:from-background dark:to-background/80">
       <div 
         className="absolute inset-0 z-0 opacity-10"
         style={{ 
@@ -27,7 +27,7 @@ const HeroSection = () => {
               Turn <span className="text-nema-green">excess food</span> into community impact
             </h1>
             <p className="text-lg text-muted-foreground max-w-lg">
-              Join Ne'ma to connect excess food with those in need, earn rewards for sustainable actions, and be part of a growing community fighting food waste and hunger.
+              Join Ma'roof to connect excess food with those in need, earn rewards for sustainable actions, and be part of a growing community fighting food waste and hunger.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-2">
               <Link to="/register">
@@ -70,7 +70,7 @@ const HeroSection = () => {
               </div>
             </div>
             
-            <div className="absolute -bottom-6 -right-6 bg-white p-4 rounded-lg shadow-lg border border-border animate-float hidden md:block">
+            <div className="absolute -bottom-6 -right-6 bg-white dark:bg-card p-4 rounded-lg shadow-lg border border-border animate-float hidden md:block">
               <div className="flex items-center gap-3">
                 <div className="bg-nema-green/10 p-2 rounded-full">
                   <ArrowRight className="h-5 w-5 text-nema-green" />

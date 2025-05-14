@@ -98,4 +98,9 @@
   .nema-gradient {
     @apply bg-gradient-to-br from-nema-green via-nema-teal to-nema-green;
   }
+
+  /* Dark mode specific styles for texts */
+  .dark .text-muted-foreground {
+    @apply text-opacity-80;
+  }
 }

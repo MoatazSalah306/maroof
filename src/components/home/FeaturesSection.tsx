@@ -39,9 +39,9 @@ const FeaturesSection = () => {
     <section className="py-16 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <h2 className="text-3xl font-bold mb-4">Key Features</h2>
+          <h2 className="text-3xl font-bold mb-4 text-foreground">Key Features</h2>
           <p className="text-muted-foreground">
-            Ne'ma offers a comprehensive platform to reduce food waste while building community and rewarding sustainable actions.
+            Ma'roof offers a comprehensive platform to reduce food waste while building community and rewarding sustainable actions.
           </p>
         </div>
 
@@ -54,7 +54,7 @@ const FeaturesSection = () => {
               <div className="h-12 w-12 rounded-lg flex items-center justify-center bg-muted mb-4">
                 {feature.icon}
               </div>
-              <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+              <h3 className="text-xl font-semibold mb-2 text-card-foreground">{feature.title}</h3>
               <p className="text-muted-foreground">{feature.description}</p>
             </div>
           ))}
