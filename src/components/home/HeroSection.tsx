@@ -2,8 +2,28 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const HeroSection = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  
+  const foodImages = [
+    "https://images.unsplash.com/photo-1498579397066-22750a3cb424?w=1200&auto=format&fit=crop", // Food donation image
+    "https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=1200&auto=format&fit=crop", // Community meal sharing
+    "https://images.unsplash.com/photo-1593113630400-ea4288922497?w=1200&auto=format&fit=crop", // Fresh produce
+    "https://images.unsplash.com/photo-1609501676725-66686d99e0f2?w=1200&auto=format&fit=crop", // Food rescue volunteers
+    "https://images.unsplash.com/photo-1541614101331-1a5a3a194e92?w=1200&auto=format&fit=crop", // Food distribution
+    "https://images.unsplash.com/photo-1605296867304-46d5465a13f1?w=1200&auto=format&fit=crop"  // Food sharing event
+  ];
+  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % foodImages.length);
+    }, 2000);
+    
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="relative overflow-hidden bg-gradient-to-b from-maroof-cream to-white dark:from-background dark:to-background/80">
       <div 
@@ -57,13 +77,22 @@ const HeroSection = () => {
           
           <div className="relative flex justify-center items-center">
             <div className="relative w-full h-[450px] rounded-xl overflow-hidden shadow-xl">
-              <img 
-                src="https://images.unsplash.com/photo-1593113630400-ea4288922497?w=1200&auto=format&fit=crop" 
-                alt="Sharing food resources" 
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-              <div className="absolute bottom-0 left-0 p-6">
+              {foodImages.map((image, index) => (
+                <div 
+                  key={index}
+                  className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ${
+                    currentSlide === index ? 'opacity-100' : 'opacity-0'
+                  }`}
+                >
+                  <img 
+                    src={image}
+                    alt={`Food impact ${index + 1}`}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                </div>
+              ))}
+              <div className="absolute bottom-0 left-0 p-6 z-10">
                 <span className="px-2 py-1 bg-maroof-green text-white text-xs rounded-md mb-2 inline-block">FEATURED</span>
                 <h3 className="text-white text-xl font-bold mb-2">Community Food Sharing</h3>
                 <p className="text-white/90 text-sm max-w-xs">Connecting excess food with those who need it, reducing waste and building community.</p>
