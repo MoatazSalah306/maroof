@@ -58,7 +58,7 @@ const HeroSection = () => {
           <div className="relative flex justify-center items-center">
             <div className="relative w-full h-[450px] rounded-xl overflow-hidden shadow-xl">
               <img 
-                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&auto=format&fit=crop" 
+                src="https://images.unsplash.com/photo-1593113630400-ea4288922497?w=1200&auto=format&fit=crop" 
                 alt="Sharing food resources" 
                 className="w-full h-full object-cover"
               />

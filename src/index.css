@@ -83,19 +83,19 @@
 }
 
 @layer components {
-  .nema-card {
+  .maroof-card {
     @apply rounded-lg bg-card text-card-foreground border border-border shadow-md hover:shadow-lg transition-shadow duration-300;
   }
   
-  .nema-button-primary {
+  .maroof-button-primary {
     @apply bg-nema-green text-white hover:bg-nema-green/90 transition-colors;
   }
   
-  .nema-button-secondary {
+  .maroof-button-secondary {
     @apply bg-nema-orange text-white hover:bg-nema-orange/90 transition-colors;
   }
   
-  .nema-gradient {
+  .maroof-gradient {
     @apply bg-gradient-to-br from-nema-green via-nema-teal to-nema-green;
   }
 
