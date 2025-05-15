@@ -28,6 +28,17 @@ const DonationsList = () => {
     donation => !donation.isClaimed && (!user || donation.userId !== user.id)
   );
 
+  // Higher quality images for the donations
+  const getHighQualityImage = (index: number) => {
+    const images = [
+      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&auto=format&fit=crop"
+    ];
+    return images[index % images.length];
+  };
+
   const handleClaimDonation = (donationId: string) => {
     if (!user) return;
     
@@ -60,12 +71,12 @@ const DonationsList = () => {
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {availableDonations.length > 0 ? (
-          availableDonations.map((donation) => (
-            <Card key={donation.id} className="overflow-hidden hover:shadow-md transition-shadow">
-              {donation.image && (
+          availableDonations.map((donation, index) => (
+            <Card key={donation.id} className="overflow-hidden hover:shadow-md transition-shadow flex flex-col h-full">
+              {(donation.image || true) && (
                 <div className="h-40 overflow-hidden">
                   <img
-                    src={donation.image}
+                    src={donation.image || getHighQualityImage(index)}
                     alt={donation.title}
                     className="w-full h-full object-cover"
                   />
@@ -84,7 +95,7 @@ const DonationsList = () => {
                 </CardDescription>
               </CardHeader>
               
-              <CardContent className="space-y-2 pt-0">
+              <CardContent className="space-y-2 pt-0 flex-grow">
                 <div className="flex items-center text-sm text-muted-foreground">
                   <MapPin className="mr-2 h-4 w-4" />
                   <span>{donation.location}</span>
@@ -103,7 +114,7 @@ const DonationsList = () => {
                 </div>
               </CardContent>
               
-              <CardFooter className="pt-0">
+              <CardFooter className="mt-auto pt-4">
                 <Button 
                   className="w-full bg-nema-green hover:bg-nema-green/90"
                   onClick={() => handleClaimDonation(donation.id)}

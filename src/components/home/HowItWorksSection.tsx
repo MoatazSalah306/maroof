@@ -42,7 +42,7 @@ const HowItWorksSection = () => {
             {steps.map((step, index) => (
               <div 
                 key={index} 
-                className="bg-card rounded-xl border p-6 relative hover:shadow-md transition-shadow text-center"
+                className="step-card bg-card rounded-xl border p-6 relative hover:shadow-md transition-shadow text-center flex flex-col h-full"
               >
                 <div className="mb-4 rounded-full bg-muted h-16 w-16 flex items-center justify-center mx-auto relative">
                   {step.icon}
@@ -50,8 +50,10 @@ const HowItWorksSection = () => {
                     {index + 1}
                   </span>
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-card-foreground">{step.title}</h3>
-                <p className="text-muted-foreground">{step.description}</p>
+                <div className="step-card-content">
+                  <h3 className="text-xl font-semibold mb-2 text-card-foreground">{step.title}</h3>
+                  <p className="text-muted-foreground">{step.description}</p>
+                </div>
               </div>
             ))}
           </div>

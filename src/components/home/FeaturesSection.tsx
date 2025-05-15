@@ -49,13 +49,15 @@ const FeaturesSection = () => {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="p-6 rounded-xl border bg-card hover:shadow-md transition-shadow"
+              className="feature-card p-6 rounded-xl border bg-card hover:shadow-md transition-shadow flex flex-col h-full"
             >
               <div className="h-12 w-12 rounded-lg flex items-center justify-center bg-muted mb-4">
                 {feature.icon}
               </div>
-              <h3 className="text-xl font-semibold mb-2 text-card-foreground">{feature.title}</h3>
-              <p className="text-muted-foreground">{feature.description}</p>
+              <div className="feature-card-content">
+                <h3 className="text-xl font-semibold mb-2 text-card-foreground">{feature.title}</h3>
+                <p className="text-muted-foreground">{feature.description}</p>
+              </div>
             </div>
           ))}
         </div>

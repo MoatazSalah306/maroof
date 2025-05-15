@@ -10,7 +10,7 @@ const CTASection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center">
           <div className="lg:col-span-3 space-y-6">
             <h2 className="text-3xl md:text-4xl font-bold leading-tight text-white">
-              Ready to make a difference? Join Ne'ma today!
+              Ready to make a difference? Join Ma'roof today!
             </h2>
             <p className="text-white/90 text-lg max-w-xl">
               Start your journey towards reducing food waste, helping those in need, and earning rewards for sustainable actions.

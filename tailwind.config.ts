@@ -54,7 +54,7 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				nema: {
-					green: '#3E6B48',
+					green: '#1ed760', // Updated to Spotify green
 					orange: '#F39237',
 					teal: '#297373',
 					cream: '#F7F3E3',

@@ -9,7 +9,7 @@ const HeroSection = () => {
       <div 
         className="absolute inset-0 z-0 opacity-10"
         style={{ 
-          backgroundImage: "url('https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&auto=format&fit=crop')",
+          backgroundImage: "url('https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=1200&auto=format&fit=crop')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -58,8 +58,8 @@ const HeroSection = () => {
           <div className="relative flex justify-center items-center">
             <div className="relative w-full h-[450px] rounded-xl overflow-hidden shadow-xl">
               <img 
-                src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=800&auto=format&fit=crop" 
-                alt="Food being shared" 
+                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&auto=format&fit=crop" 
+                alt="Sharing food resources" 
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>

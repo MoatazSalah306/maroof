@@ -14,7 +14,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 20 6% 10%;
 
-    --primary: 130 28% 33%;
+    --primary: 142 79% 48%; /* Changed to match #1ed760 */
     --primary-foreground: 355 100% 100%;
 
     --secondary: 32 89% 58%;
@@ -31,7 +31,7 @@
 
     --border: 20 6% 90%;
     --input: 20 6% 90%;
-    --ring: 130 28% 33%;
+    --ring: 142 79% 48%; /* Changed to match #1ed760 */
 
     --radius: 0.75rem;
   }
@@ -46,7 +46,7 @@
     --popover: 20 6% 12%;
     --popover-foreground: 60 33% 98%;
 
-    --primary: 130 28% 33%;
+    --primary: 142 79% 48%; /* Changed to match #1ed760 */
     --primary-foreground: 355 100% 100%;
 
     --secondary: 32 89% 58%;
@@ -63,7 +63,7 @@
 
     --border: 20 6% 20%;
     --input: 20 6% 20%;
-    --ring: 130 28% 43%;
+    --ring: 142 79% 58%; /* Slightly lighter for dark mode */
   }
 }
 
@@ -101,6 +101,19 @@
 
   /* Dark mode specific styles for texts */
   .dark .text-muted-foreground {
-    @apply text-opacity-80;
+    @apply text-opacity-90; /* Increased opacity for better visibility */
+  }
+
+  /* Card alignment fix for consistent card heights */
+  .feature-card, .step-card {
+    @apply flex flex-col h-full;
+  }
+
+  .feature-card-content, .step-card-content {
+    @apply flex-grow;
+  }
+
+  .card-footer {
+    @apply mt-auto pt-4;
   }
 }
