@@ -4,22 +4,22 @@ import { Utensils, Users, Award, Clock } from "lucide-react";
 const HowItWorksSection = () => {
   const steps = [
     {
-      icon: <Users className="h-8 w-8 text-nema-green" />,
+      icon: <Users className="h-8 w-8 text-maroof-green" />,
       title: "Create an Account",
       description: "Sign up as an individual or business to get started on your food waste reduction journey.",
     },
     {
-      icon: <Utensils className="h-8 w-8 text-nema-orange" />,
+      icon: <Utensils className="h-8 w-8 text-maroof-orange" />,
       title: "Donate or Claim Food",
       description: "List excess food for donation or claim available food for distribution to those in need.",
     },
     {
-      icon: <Award className="h-8 w-8 text-nema-teal" />,
+      icon: <Award className="h-8 w-8 text-maroof-teal" />,
       title: "Earn Rewards",
       description: "Get points for your sustainable actions, level up, and unlock badges and achievements.",
     },
     {
-      icon: <Clock className="h-8 w-8 text-nema-brown" />,
+      icon: <Clock className="h-8 w-8 text-maroof-brown" />,
       title: "Track Your Impact",
       description: "Monitor your personal or business contribution to food waste reduction and community support.",
     },
@@ -36,7 +36,7 @@ const HowItWorksSection = () => {
         </div>
 
         <div className="relative">
-          <div className="hidden md:block absolute left-1/2 top-1/2 h-0.5 w-full bg-nema-green/30 -translate-y-1/2 -translate-x-1/2 -z-10"></div>
+          <div className="hidden md:block absolute left-1/2 top-1/2 h-0.5 w-full bg-maroof-green/30 -translate-y-1/2 -translate-x-1/2 -z-10"></div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {steps.map((step, index) => (
@@ -46,7 +46,7 @@ const HowItWorksSection = () => {
               >
                 <div className="mb-4 rounded-full bg-muted h-16 w-16 flex items-center justify-center mx-auto relative">
                   {step.icon}
-                  <span className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-nema-green text-white text-sm flex items-center justify-center font-semibold">
+                  <span className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-maroof-green text-white text-sm flex items-center justify-center font-semibold">
                     {index + 1}
                   </span>
                 </div>

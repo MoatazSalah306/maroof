@@ -3,11 +3,6 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
-import { 
-  Carousel,
-  CarouselContent,
-  CarouselItem
-} from "@/components/ui/carousel";
 
 const CTASection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -30,7 +25,7 @@ const CTASection = () => {
   }, []);
   
   return (
-    <section className="py-16 bg-nema-green">
+    <section className="py-16 bg-maroof-green">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center">
           <div className="lg:col-span-3 space-y-6">
@@ -42,7 +37,7 @@ const CTASection = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link to="/register">
-                <Button size="lg" className="bg-white text-nema-green hover:bg-white/90">
+                <Button size="lg" className="bg-white text-maroof-green hover:bg-white/90">
                   Join as Individual
                 </Button>
               </Link>

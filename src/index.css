@@ -88,15 +88,15 @@
   }
   
   .maroof-button-primary {
-    @apply bg-nema-green text-white hover:bg-nema-green/90 transition-colors;
+    @apply bg-maroof-green text-white hover:bg-maroof-green/90 transition-colors;
   }
   
   .maroof-button-secondary {
-    @apply bg-nema-orange text-white hover:bg-nema-orange/90 transition-colors;
+    @apply bg-maroof-orange text-white hover:bg-maroof-orange/90 transition-colors;
   }
   
   .maroof-gradient {
-    @apply bg-gradient-to-br from-nema-green via-nema-teal to-nema-green;
+    @apply bg-gradient-to-br from-maroof-green via-maroof-teal to-maroof-green;
   }
 
   /* Dark mode specific styles for texts */

@@ -53,7 +53,7 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				nema: {
+				maroof: {
 					green: '#1ed760', // Updated to Spotify green
 					orange: '#F39237',
 					teal: '#297373',

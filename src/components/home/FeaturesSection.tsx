@@ -4,17 +4,17 @@ import { Heart, GraduationCap, Leaf, Award, Utensils, Users } from "lucide-react
 const FeaturesSection = () => {
   const features = [
     {
-      icon: <Utensils className="h-6 w-6 text-nema-orange" />,
+      icon: <Utensils className="h-6 w-6 text-maroof-orange" />,
       title: "Food Donation",
       description: "Easily list excess food from individuals or businesses for redistribution to those in need.",
     },
     {
-      icon: <GraduationCap className="h-6 w-6 text-nema-green" />,
+      icon: <GraduationCap className="h-6 w-6 text-maroof-green" />,
       title: "Educational Resources",
       description: "Access a library of sustainability videos, tips, and resources to learn about reducing food waste.",
     },
     {
-      icon: <Award className="h-6 w-6 text-nema-teal" />,
+      icon: <Award className="h-6 w-6 text-maroof-teal" />,
       title: "Gamification",
       description: "Earn points, unlock badges, and level up by taking actions that reduce food waste and help others.",
     },
@@ -29,7 +29,7 @@ const FeaturesSection = () => {
       description: "Find and participate in local food rescue and distribution volunteer opportunities.",
     },
     {
-      icon: <Leaf className="h-6 w-6 text-nema-brown" />,
+      icon: <Leaf className="h-6 w-6 text-maroof-brown" />,
       title: "Sustainability Tracking",
       description: "Monitor your personal or business environmental impact through food waste reduction metrics.",
     },

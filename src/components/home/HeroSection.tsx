@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 
 const HeroSection = () => {
   return (
-    <div className="relative overflow-hidden bg-gradient-to-b from-nema-cream to-white dark:from-background dark:to-background/80">
+    <div className="relative overflow-hidden bg-gradient-to-b from-maroof-cream to-white dark:from-background dark:to-background/80">
       <div 
         className="absolute inset-0 z-0 opacity-10"
         style={{ 
@@ -19,19 +19,19 @@ const HeroSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <div>
-              <span className="px-3 py-1 text-sm rounded-full bg-nema-green/10 text-nema-green border border-nema-green/20">
+              <span className="px-3 py-1 text-sm rounded-full bg-maroof-green/10 text-maroof-green border border-maroof-green/20">
                 Food waste reduction platform
               </span>
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground">
-              Turn <span className="text-nema-green">excess food</span> into community impact
+              Turn <span className="text-maroof-green">excess food</span> into community impact
             </h1>
             <p className="text-lg text-muted-foreground max-w-lg">
               Join Ma'roof to connect excess food with those in need, earn rewards for sustainable actions, and be part of a growing community fighting food waste and hunger.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-2">
               <Link to="/register">
-                <Button size="lg" className="bg-nema-green hover:bg-nema-green/90 text-white">
+                <Button size="lg" className="bg-maroof-green hover:bg-maroof-green/90 text-white">
                   Join the movement <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
@@ -41,15 +41,15 @@ const HeroSection = () => {
             </div>
             <div className="flex gap-8 pt-6">
               <div>
-                <p className="text-3xl font-bold text-nema-green">5000+</p>
+                <p className="text-3xl font-bold text-maroof-green">5000+</p>
                 <p className="text-sm text-muted-foreground">Users joined</p>
               </div>
               <div>
-                <p className="text-3xl font-bold text-nema-green">2.5 tons</p>
+                <p className="text-3xl font-bold text-maroof-green">2.5 tons</p>
                 <p className="text-sm text-muted-foreground">Food saved</p>
               </div>
               <div>
-                <p className="text-3xl font-bold text-nema-green">150+</p>
+                <p className="text-3xl font-bold text-maroof-green">150+</p>
                 <p className="text-sm text-muted-foreground">Partner businesses</p>
               </div>
             </div>
@@ -64,7 +64,7 @@ const HeroSection = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
               <div className="absolute bottom-0 left-0 p-6">
-                <span className="px-2 py-1 bg-nema-green text-white text-xs rounded-md mb-2 inline-block">FEATURED</span>
+                <span className="px-2 py-1 bg-maroof-green text-white text-xs rounded-md mb-2 inline-block">FEATURED</span>
                 <h3 className="text-white text-xl font-bold mb-2">Community Food Sharing</h3>
                 <p className="text-white/90 text-sm max-w-xs">Connecting excess food with those who need it, reducing waste and building community.</p>
               </div>
@@ -72,8 +72,8 @@ const HeroSection = () => {
             
             <div className="absolute -bottom-6 -right-6 bg-white dark:bg-card p-4 rounded-lg shadow-lg border border-border animate-float hidden md:block">
               <div className="flex items-center gap-3">
-                <div className="bg-nema-green/10 p-2 rounded-full">
-                  <ArrowRight className="h-5 w-5 text-nema-green" />
+                <div className="bg-maroof-green/10 p-2 rounded-full">
+                  <ArrowRight className="h-5 w-5 text-maroof-green" />
                 </div>
                 <div>
                   <p className="text-sm font-medium">Join today</p>

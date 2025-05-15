@@ -49,7 +49,7 @@ const NavBar = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <span className="text-nema-green font-bold text-2xl relative overflow-hidden after:absolute after:bottom-0 after:left-0 after:h-1 after:w-full after:bg-nema-green after:transform after:translate-x-[-100%] hover:after:translate-x-0 after:transition-transform after:duration-300">
+            <span className="text-maroof-green font-bold text-2xl relative overflow-hidden after:absolute after:bottom-0 after:left-0 after:h-1 after:w-full after:bg-maroof-green after:transform after:translate-x-[-100%] hover:after:translate-x-0 after:transition-transform after:duration-300">
               Ma'roof
             </span>
           </Link>
@@ -103,7 +103,7 @@ const NavBar = () => {
                   <Button variant="outline">Login</Button>
                 </Link>
                 <Link to="/register">
-                  <Button className="bg-nema-green hover:bg-nema-green/90">Join Us</Button>
+                  <Button className="bg-maroof-green hover:bg-maroof-green/90">Join Us</Button>
                 </Link>
               </div>
             )}
@@ -163,7 +163,7 @@ const NavBar = () => {
                     <Button variant="outline" className="w-full">Login</Button>
                   </Link>
                   <Link to="/register" onClick={() => setIsMenuOpen(false)}>
-                    <Button className="w-full bg-nema-green hover:bg-nema-green/90">Join Us</Button>
+                    <Button className="w-full bg-maroof-green hover:bg-maroof-green/90">Join Us</Button>
                   </Link>
                 </div>
               )}
@@ -180,8 +180,8 @@ const NavLink = ({ to, active, children }: { to: string; active: boolean; childr
   return (
     <Link
       to={to}
-      className={`text-base font-medium transition-colors hover:text-nema-green ${
-        active ? "text-nema-green" : "text-foreground"
+      className={`text-base font-medium transition-colors hover:text-maroof-green ${
+        active ? "text-maroof-green" : "text-foreground"
       }`}
     >
       {children}
@@ -194,7 +194,7 @@ const MobileNavLink = ({ to, onClick, children }: { to: string; onClick: () => v
   return (
     <Link
       to={to}
-      className="text-base font-medium text-foreground hover:text-nema-green transition-colors"
+      className="text-base font-medium text-foreground hover:text-maroof-green transition-colors"
       onClick={onClick}
     >
       {children}
