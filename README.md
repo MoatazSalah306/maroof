@@ -17,6 +17,8 @@ The **Food and Clothes Waste Reduction Initiative Platform** is a web-based solu
 - [Expected Impact](#expected-impact)  
 - [Future Enhancements](#future-enhancements)  
 - [Sustainability Alignment](#sustainability-alignment)  
+- [Installation & Setup](#installation--setup)  
+- [Dependencies](#dependencies)  
 - [Conclusion](#conclusion)  
 
 ---
@@ -101,6 +103,22 @@ This project supports the following United Nations Sustainable Development Goals
 
 ---
 
-## Conclusion
+## Installation & Setup
 
-The Food and Clothes Waste Reduction Initiative Platform is a comprehensive tool designed to address waste and basic needs simultaneously. Through technology, gamification, and community engagement, it empowers users to take part in sustainable practices that benefit society and the planet. Its scalability and future enhancements promise an even greater positive impact in the years ahead.
+Follow these steps to get the platform up and running locally:
+
+### Prerequisites
+
+- **Node.js** (v14 or higher) and **npm** (comes with Node.js)  
+- **Git** (for cloning repository)  
+
+---
+
+### Steps
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/MoatazSalah306/maroof.git
+   cd maroof
+   npm i
