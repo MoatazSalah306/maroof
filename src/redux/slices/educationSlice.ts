@@ -20,7 +20,6 @@ interface EducationState {
   isLoading: boolean;
   error: string | null;
 }
-
 const initialState: EducationState = {
   resources: [
     {
@@ -30,8 +29,8 @@ const initialState: EducationState = {
       type: "video",
       duration: 8,
       points: 20,
-      thumbnailUrl: "https://images.unsplash.com/photo-1546548970-71785318a17b?w=800&auto=format&fit=crop&q=60",
-      content: "https://www.youtube.com/watch?v=FTociictyyE",
+      thumbnailUrl: "https://img.youtube.com/vi/Uklbzm2DGA4/hqdefault.jpg",
+      content: "https://www.youtube.com/watch?v=Uklbzm2DGA4",
       tags: ["storage", "beginner", "kitchen"],
       completedBy: []
     },
@@ -42,8 +41,8 @@ const initialState: EducationState = {
       type: "article",
       duration: 5,
       points: 15,
-      thumbnailUrl: "https://images.unsplash.com/photo-1584473457493-17c4c24290d2?w=800&auto=format&fit=crop&q=60",
-      content: "https://example.com/article",
+      thumbnailUrl: "/images/one.jpg",
+      content: "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/food-product-dating",
       tags: ["food safety", "expiry dates", "awareness"],
       completedBy: []
     },
@@ -54,8 +53,8 @@ const initialState: EducationState = {
       type: "video",
       duration: 12,
       points: 25,
-      thumbnailUrl: "https://images.unsplash.com/photo-1505935428862-770b6f24f629?w=800&auto=format&fit=crop&q=60",
-      content: "https://www.youtube.com/watch?v=zZVdnAgYUps",
+      thumbnailUrl: "https://img.youtube.com/vi/dIIhzJUt8Ak/hqdefault.jpg",
+      content: "https://www.youtube.com/watch?v=dIIhzJUt8Ak",
       tags: ["meal planning", "kitchen", "budget"],
       completedBy: []
     },
@@ -66,8 +65,8 @@ const initialState: EducationState = {
       type: "quiz",
       duration: 10,
       points: 30,
-      thumbnailUrl: "https://images.unsplash.com/photo-1584473457493-17c4c24290d2?w=800&auto=format&fit=crop&q=60",
-      content: "quiz content here",
+      thumbnailUrl: "https://www.proprofs.com/quiz-school/upload/yuiupload/1452929111.jpg",
+      content: "https://www.proprofs.com/quiz-school/story.php?title=food-waste-facts-shortenedds",
       tags: ["quiz", "knowledge test", "learning"],
       completedBy: []
     },
@@ -78,8 +77,8 @@ const initialState: EducationState = {
       type: "video",
       duration: 15,
       points: 25,
-      thumbnailUrl: "https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&auto=format&fit=crop",
-      content: "https://www.youtube.com/watch?v=8dUjy1aldGU",
+      thumbnailUrl: "https://img.youtube.com/vi/YEGISWTEgyU/hqdefault.jpg",
+      content: "https://www.youtube.com/watch?v=YEGISWTEgyU",
       tags: ["sustainability", "environment", "food systems"],
       completedBy: []
     }
@@ -88,6 +87,8 @@ const initialState: EducationState = {
   isLoading: false,
   error: null
 };
+
+
 
 export const educationSlice = createSlice({
   name: 'education',

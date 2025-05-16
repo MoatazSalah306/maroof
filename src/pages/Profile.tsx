@@ -185,7 +185,7 @@ const Profile = () => {
             <CardHeader className="pb-3 flex flex-row items-center space-x-4">
               <Avatar className="h-16 w-16">
                 <AvatarImage src={user?.avatar} alt={user?.name} />
-                <AvatarFallback className="bg-nema-green text-white text-xl">
+                <AvatarFallback className="bg-maroof-green text-white text-xl">
                   {user?.name?.charAt(0) || "U"}
                 </AvatarFallback>
               </Avatar>
@@ -196,12 +196,12 @@ const Profile = () => {
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
-                <div className="flex items-center gap-3 p-3 rounded-lg bg-gradient-to-r from-nema-green/10 to-nema-green/20 border border-nema-green/20">
-                  <div className="bg-nema-green/20 p-2 rounded-full">
-                    <Award className="h-5 w-5 text-nema-green" />
+                <div className="flex items-center gap-3 p-3 rounded-lg bg-gradient-to-r from-maroof-green/10 to-maroof-green/20 border border-maroof-green/20">
+                  <div className="bg-maroof-green/20 p-2 rounded-full">
+                    <Award className="h-5 w-5 text-maroof-green" />
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-nema-green">Current Level</p>
+                    <p className="text-sm font-medium text-maroof-green">Current Level</p>
                     <h3 className="text-2xl font-bold">{user?.level || 0}</h3>
                   </div>
                 </div>
@@ -312,7 +312,7 @@ const Profile = () => {
                       
                       <Button 
                         type="submit" 
-                        className="bg-nema-green hover:bg-nema-green/90"
+                        className="bg-maroof-green hover:bg-maroof-green/90"
                         disabled={isUpdating}
                       >
                         {isUpdating ? "Saving Changes..." : "Save Changes"}
@@ -355,8 +355,8 @@ const Profile = () => {
                               <Badge 
                                 variant="outline" 
                                 className={donation.isClaimed ? 
-                                  "bg-nema-orange/10 text-nema-orange border-nema-orange/20" : 
-                                  "bg-nema-green/10 text-nema-green border-nema-green/20"}
+                                  "bg-maroof-orange/10 text-maroof-orange border-maroof-orange/20" : 
+                                  "bg-maroof-green/10 text-maroof-green border-maroof-green/20"}
                               >
                                 {donation.isClaimed ? "Claimed" : "Available"}
                               </Badge>
@@ -381,7 +381,7 @@ const Profile = () => {
                   ) : (
                     <div className="text-center py-8 text-muted-foreground">
                       <p>You haven't made any donations yet.</p>
-                      <Button className="mt-4 bg-nema-orange hover:bg-nema-orange/90">
+                      <Button className="mt-4 bg-maroof-orange hover:bg-maroof-orange/90">
                         Create Your First Donation
                       </Button>
                     </div>

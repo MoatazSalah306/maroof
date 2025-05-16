@@ -131,13 +131,13 @@ const ResourceGrid = ({ resources, completedIds }: ResourceGridProps) => {
               </div>
             )}
             
-            <Badge className="absolute top-2 right-2 capitalize bg-nema-teal hover:bg-nema-teal/90">
+            <Badge className="absolute top-2 right-2 capitalize bg-maroof-teal hover:bg-maroof-teal/90">
               {resource.type}
             </Badge>
             
             {completedIds.includes(resource.id) && (
               <div className="absolute top-2 left-2">
-                <Badge className="bg-nema-green hover:bg-nema-green">
+                <Badge className="bg-maroof-green hover:bg-maroof-green">
                   <CheckCircle className="w-3 h-3 mr-1" /> Completed
                 </Badge>
               </div>
@@ -173,7 +173,7 @@ const ResourceGrid = ({ resources, completedIds }: ResourceGridProps) => {
           <CardFooter>
             <Link to={`/learn/${resource.id}`} className="w-full">
               <Button 
-                className="w-full bg-nema-teal hover:bg-nema-teal/90"
+                className="w-full bg-maroof-teal hover:bg-maroof-teal/90"
                 variant={completedIds.includes(resource.id) ? "outline" : "default"}
               >
                 {completedIds.includes(resource.id) ? "View Again" : "Start Learning"}

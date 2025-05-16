@@ -177,13 +177,13 @@ const Impact = () => {
               {Array.isArray(activities) && activities.length > 0 ? (
                 <div className="space-y-4">
                   {activities.map((activity) => (
-                    <div key={activity.id} className="border-l-2 border-nema-green pl-4 py-2">
+                    <div key={activity.id} className="border-l-2 border-maroof-green pl-4 py-2">
                       <p className="font-medium">{activity.description}</p>
                       <div className="flex justify-between items-center mt-1">
                         <span className="text-sm text-muted-foreground">
                           {new Date(activity.timestamp).toLocaleDateString()}
                         </span>
-                        <span className="text-sm font-medium text-nema-green">+{activity.points} points</span>
+                        <span className="text-sm font-medium text-maroof-green">+{activity.points} points</span>
                       </div>
                     </div>
                   ))}

@@ -288,7 +288,7 @@ const DonateFood = () => {
               <div className="pt-4">
                 <Button 
                   type="submit" 
-                  className="w-full bg-nema-green hover:bg-nema-green/90"
+                  className="w-full bg-maroof-green hover:bg-maroof-green/90"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? "Creating Donation..." : "Create Donation"}

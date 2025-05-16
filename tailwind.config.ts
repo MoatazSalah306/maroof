@@ -54,11 +54,12 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				maroof: {
-					green: '#1ed760', // Updated to Spotify green
+					green: '#1DB954', // Updated to less-light green
 					orange: '#F39237',
-					teal: '#297373',
+					teal: '#1D9854',
 					cream: '#F7F3E3',
 					brown: '#A27035',
+					
 				},
 			},
 			borderRadius: {

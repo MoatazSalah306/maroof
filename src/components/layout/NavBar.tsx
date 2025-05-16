@@ -49,9 +49,11 @@ const NavBar = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <span className="text-maroof-green font-bold text-2xl relative overflow-hidden after:absolute after:bottom-0 after:left-0 after:h-1 after:w-full after:bg-maroof-green after:transform after:translate-x-[-100%] hover:after:translate-x-0 after:transition-transform after:duration-300">
-              Ma'roof
-            </span>
+              <img
+                src="/images/logo.png"
+                alt="Ma'roof Logo"
+                className="h-10 w-auto" // Adjust size as needed
+              />
           </Link>
 
           {/* Desktop Menu */}

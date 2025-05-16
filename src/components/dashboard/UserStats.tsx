@@ -18,49 +18,49 @@ const UserStats = () => {
   
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-      <div className="p-4 rounded-lg bg-gradient-to-r from-nema-green/10 to-nema-green/20 border border-nema-green/20">
+      <div className="p-4 rounded-lg bg-gradient-to-r from-maroof-green/10 to-maroof-green/20 border border-maroof-green/20">
         <div className="flex items-center gap-3">
-          <div className="bg-nema-green/20 p-2 rounded-full">
-            <Award className="h-5 w-5 text-nema-green" />
+          <div className="bg-maroof-green/20 p-2 rounded-full">
+            <Award className="h-5 w-5 text-maroof-green" />
           </div>
           <div>
-            <p className="text-sm font-medium text-nema-green">Current Level</p>
+            <p className="text-sm font-medium text-maroof-green">Current Level</p>
             <h3 className="text-2xl font-bold">{user.level}</h3>
           </div>
         </div>
       </div>
       
-      <div className="p-4 rounded-lg bg-gradient-to-r from-nema-orange/10 to-nema-orange/20 border border-nema-orange/20">
+      <div className="p-4 rounded-lg bg-gradient-to-r from-maroof-orange/10 to-maroof-orange/20 border border-maroof-orange/20">
         <div className="flex items-center gap-3">
-          <div className="bg-nema-orange/20 p-2 rounded-full">
-            <Gift className="h-5 w-5 text-nema-orange" />
+          <div className="bg-maroof-orange/20 p-2 rounded-full">
+            <Gift className="h-5 w-5 text-maroof-orange" />
           </div>
           <div>
-            <p className="text-sm font-medium text-nema-orange">Total Points</p>
+            <p className="text-sm font-medium text-maroof-orange">Total Points</p>
             <h3 className="text-2xl font-bold">{user.points}</h3>
           </div>
         </div>
       </div>
       
-      <div className="p-4 rounded-lg bg-gradient-to-r from-nema-teal/10 to-nema-teal/20 border border-nema-teal/20">
+      <div className="p-4 rounded-lg bg-gradient-to-r from-maroof-teal/10 to-maroof-teal/20 border border-maroof-teal/20">
         <div className="flex items-center gap-3">
-          <div className="bg-nema-teal/20 p-2 rounded-full">
-            <Flame className="h-5 w-5 text-nema-teal" />
+          <div className="bg-maroof-teal/20 p-2 rounded-full">
+            <Flame className="h-5 w-5 text-maroof-teal" />
           </div>
           <div>
-            <p className="text-sm font-medium text-nema-teal">Streak</p>
+            <p className="text-sm font-medium text-maroof-teal">Streak</p>
             <h3 className="text-2xl font-bold">7 days</h3>
           </div>
         </div>
       </div>
       
-      <div className="p-4 rounded-lg bg-gradient-to-r from-nema-brown/10 to-nema-brown/20 border border-nema-brown/20">
+      <div className="p-4 rounded-lg bg-gradient-to-r from-maroof-brown/10 to-maroof-brown/20 border border-maroof-brown/20">
         <div className="flex items-center gap-3">
-          <div className="bg-nema-brown/20 p-2 rounded-full">
-            <Clock className="h-5 w-5 text-nema-brown" />
+          <div className="bg-maroof-brown/20 p-2 rounded-full">
+            <Clock className="h-5 w-5 text-maroof-brown" />
           </div>
           <div>
-            <p className="text-sm font-medium text-nema-brown">Member Since</p>
+            <p className="text-sm font-medium text-maroof-brown">Member Since</p>
             <h3 className="text-base font-bold">
               {new Date(user.createdAt).toLocaleDateString()}
             </h3>

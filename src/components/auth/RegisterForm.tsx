@@ -80,11 +80,12 @@ const RegisterForm = () => {
   };
 
   return (
-    <div className="mx-auto w-full max-w-md p-6 rounded-lg nema-card">
+  <div className="mx-auto w-full max-w-md p-6 rounded-lg border-l-2 border-maroof-green bg-white shadow-[0_4px_10px_rgba(29,185,84,0.2)]">
+
       <div className="mb-6 text-center">
         <h2 className="text-2xl font-bold text-foreground">Create an Account</h2>
         <p className="mt-2 text-muted-foreground">
-          Join Ne'ma and start reducing food waste
+          Join Ma'roof and start reducing food waste
         </p>
       </div>
 
@@ -220,14 +221,14 @@ const RegisterForm = () => {
                     I agree to the{" "}
                     <Link
                       to="/terms"
-                      className="text-nema-teal hover:text-nema-green"
+                      className="text-maroof-teal hover:text-maroof-green"
                     >
                       Terms of Service
                     </Link>{" "}
                     and{" "}
                     <Link
                       to="/privacy"
-                      className="text-nema-teal hover:text-nema-green"
+                      className="text-maroof-teal hover:text-maroof-green"
                     >
                       Privacy Policy
                     </Link>
@@ -242,7 +243,7 @@ const RegisterForm = () => {
 
           <Button
             type="submit"
-            className="w-full bg-nema-green hover:bg-nema-green/90"
+            className="w-full bg-maroof-green hover:bg-maroof-green/90"
             disabled={isLoading}
           >
             {isLoading ? "Creating account..." : "Create account"}
@@ -253,7 +254,7 @@ const RegisterForm = () => {
               Already have an account?{" "}
               <Link
                 to="/login"
-                className="font-medium text-nema-teal hover:text-nema-green"
+                className="font-medium text-maroof-teal hover:text-maroof-green"
               >
                 Sign in
               </Link>

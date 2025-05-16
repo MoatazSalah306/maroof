@@ -97,18 +97,18 @@ const EducationResource = () => {
     <div className="container mx-auto px-4 py-8">
       <div className="max-w-4xl mx-auto">
         <div className="mb-6">
-          <Link to="/learn" className="inline-flex items-center text-nema-teal hover:text-nema-green">
+          <Link to="/learn" className="inline-flex items-center text-maroof-teal hover:text-maroof-green">
             <ArrowLeft className="mr-2 h-4 w-4" /> Back to Educational Resources
           </Link>
         </div>
         
         <div className="mb-6">
           <div className="flex flex-wrap gap-2 mb-2">
-            <Badge className="capitalize bg-nema-teal">
+            <Badge className="capitalize bg-maroof-teal">
               {resource.type}
             </Badge>
             {isCompleted && (
-              <Badge className="bg-nema-green">
+              <Badge className="bg-maroof-green">
                 <CheckCircle className="w-3 h-3 mr-1" /> Completed
               </Badge>
             )}
@@ -189,7 +189,7 @@ const EducationResource = () => {
         {!isCompleted && user ? (
           <Button 
             onClick={handleMarkAsCompleted}
-            className="w-full bg-nema-green hover:bg-nema-green/90"
+            className="w-full bg-maroof-green hover:bg-maroof-green/90"
             disabled={isCompleting}
           >
             {isCompleting ? "Marking as completed..." : "Mark as Completed"}
@@ -200,11 +200,11 @@ const EducationResource = () => {
             <BookOpen className="h-4 w-4" />
             <AlertTitle>Sign in to earn points</AlertTitle>
             <AlertDescription>
-              <Link to="/login" className="text-nema-teal hover:text-nema-green">
+              <Link to="/login" className="text-maroof-teal hover:text-maroof-green">
                 Sign in
               </Link>{" "}
               or{" "}
-              <Link to="/register" className="text-nema-teal hover:text-nema-green">
+              <Link to="/register" className="text-maroof-teal hover:text-maroof-green">
                 create an account
               </Link>{" "}
               to track your progress and earn points for completing educational resources.

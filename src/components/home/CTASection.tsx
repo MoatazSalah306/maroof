@@ -8,12 +8,12 @@ const CTASection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   
   const foodImages = [
-    "https://images.unsplash.com/photo-1498579397066-22750a3cb424?w=800&auto=format&fit=crop", // Food donation image
-    "https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=800&auto=format&fit=crop", // Community meal sharing
-    "https://images.unsplash.com/photo-1593113630400-ea4288922497?w=800&auto=format&fit=crop", // Fresh produce
-    "https://images.unsplash.com/photo-1609501676725-66686d99e0f2?w=800&auto=format&fit=crop", // Food rescue volunteers
-    "https://images.unsplash.com/photo-1541614101331-1a5a3a194e92?w=800&auto=format&fit=crop", // Food distribution
-    "https://images.unsplash.com/photo-1605296867304-46d5465a13f1?w=800&auto=format&fit=crop"  // Food sharing event
+    "https://images.unsplash.com/photo-1498579397066-22750a3cb424?w=1200&auto=format&fit=crop", // Food donation image
+    "https://media.istockphoto.com/id/1769333438/photo/food-waste.jpg?s=612x612&w=0&k=20&c=XR9cFuXSfvv6O7YiLFfQGIIKl2bm39wxyl7PlITGkt0=", // Community meal sharing
+    "https://media.istockphoto.com/id/1181962948/photo/volunteers-scooping-the-food-to-share-with-the-needy-concept-of-providing-free-food-to.jpg?s=612x612&w=0&k=20&c=pWU0efeNYR58cEKMA7FlhGTUZY_NFytbJJ9XOxZe0HA=", // Fresh produce
+    "https://media.istockphoto.com/id/1283154274/photo/woman-holding-cardboard-donation-box-full-with-folded-clothes.jpg?s=612x612&w=0&k=20&c=bqJFhv_hRXV3Milqrmuh54eyIiScjgqP6z0iwnnT84I=", // Food rescue volunteers
+    "https://media.istockphoto.com/id/1355684614/photo/throwing-away-leftover-food-in-trash.jpg?s=612x612&w=0&k=20&c=gQz4ZhNhCeajZDWXTiAPftCzI4SYd0ueYKWGEYLqhhA=", // Food distribution
+    "https://media.istockphoto.com/id/1492759962/photo/concept-of-giving-free-food-to-the-poor-in-the-community-volunteers-handing-out-food-to.jpg?s=612x612&w=0&k=20&c=qYX37R38Ynj4fiQLAZImX0XgTCJCI-Tsy2-Qzi2FQ5g="  // Food sharing event
   ];
   
   useEffect(() => {
@@ -42,7 +42,7 @@ const CTASection = () => {
                 </Button>
               </Link>
               <Link to="/register?type=business">
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+                <Button size="lg" variant="outline" className="border-white text-maroof-green hover:bg-white/10">
                   Join as Business <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>

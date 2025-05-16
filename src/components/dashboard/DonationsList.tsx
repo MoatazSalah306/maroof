@@ -86,7 +86,7 @@ const DonationsList = () => {
               <CardHeader className={donation.image ? "pt-3 pb-2" : ""}>
                 <div className="flex justify-between items-start">
                   <CardTitle className="text-lg">{donation.title}</CardTitle>
-                  <Badge variant="outline" className="bg-nema-green/10 text-nema-green border-nema-green/20">
+                  <Badge variant="outline" className="bg-maroof-green/10 text-maroof-green border-maroof-green/20">
                     {donation.category}
                   </Badge>
                 </div>
@@ -116,7 +116,7 @@ const DonationsList = () => {
               
               <CardFooter className="mt-auto pt-4">
                 <Button 
-                  className="w-full bg-nema-green hover:bg-nema-green/90"
+                  className="w-full bg-maroof-green hover:bg-maroof-green/90"
                   onClick={() => handleClaimDonation(donation.id)}
                   disabled={!user}
                 >

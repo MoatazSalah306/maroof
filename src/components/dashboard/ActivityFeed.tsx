@@ -6,13 +6,13 @@ import { ActivityLog } from "@/lib/types";
 const getActivityIcon = (type: ActivityLog["type"]) => {
   switch (type) {
     case "donation":
-      return <Utensils className="h-4 w-4 text-nema-green" />;
+      return <Utensils className="h-4 w-4 text-maroof-green" />;
     case "claim":
-      return <HandHeart className="h-4 w-4 text-nema-orange" />;
+      return <HandHeart className="h-4 w-4 text-maroof-orange" />;
     case "education":
-      return <GraduationCap className="h-4 w-4 text-nema-teal" />;
+      return <GraduationCap className="h-4 w-4 text-maroof-teal" />;
     case "volunteer":
-      return <HandHeart className="h-4 w-4 text-nema-brown" />;
+      return <HandHeart className="h-4 w-4 text-maroof-brown" />;
     default:
       return <Clock className="h-4 w-4" />;
   }
@@ -73,7 +73,7 @@ const ActivityFeed = () => {
                 </div>
               </div>
               
-              <div className="flex items-center gap-1 text-nema-green">
+              <div className="flex items-center gap-1 text-maroof-green">
                 <Award className="h-4 w-4" />
                 <span className="text-sm font-medium">+{activity.points}</span>
               </div>
@@ -88,7 +88,7 @@ const ActivityFeed = () => {
       
       {userActivities.length > 0 && (
         <div className="text-center pt-2">
-          <button className="text-sm text-nema-teal hover:text-nema-green font-medium">
+          <button className="text-sm text-maroof-teal hover:text-maroof-green font-medium">
             View all activity
           </button>
         </div>

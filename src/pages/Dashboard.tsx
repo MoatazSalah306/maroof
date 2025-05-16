@@ -21,7 +21,7 @@ const Dashboard = () => {
         </div>
         <div className="flex gap-3">
           <Link to="/donate">
-            <Button className="bg-nema-orange hover:bg-nema-orange/90">
+            <Button className="bg-maroof-orange hover:bg-maroof-orange/90">
               <Plus className="mr-2 h-4 w-4" /> Create Donation
             </Button>
           </Link>

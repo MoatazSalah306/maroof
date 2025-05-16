@@ -15,6 +15,7 @@ import Education from "./pages/Education";
 import EducationResource from "./pages/EducationResource";
 import Profile from "./pages/Profile";
 import Impact from "./pages/Impact";
+import About from "./pages/About";
 import RequireAuth from "./components/auth/RequireAuth";
 
 const queryClient = new QueryClient();
@@ -46,6 +47,7 @@ const App = () => (
               </RequireAuth>
             } />
             <Route path="impact" element={<Impact />} />
+            <Route path="about" element={<About />} />
           </Route>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
