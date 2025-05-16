@@ -111,7 +111,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         
         toast({
           title: "Login successful",
-          description: "Welcome to Ne'ma!",
+          description: "Welcome to Ma'roof!",
         });
       } else {
         dispatch(loginFailure("Invalid email or password"));
@@ -160,7 +160,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         id: `activity-${Date.now()}`,
         userId: newUser.id,
         type: "education",
-        description: "Joined Ne'ma - Welcome!",
+        description: "Joined Ma'roof - Welcome!",
         points: 20,
         timestamp: new Date()
       }));
@@ -172,7 +172,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       
       toast({
         title: "Registration successful",
-        description: "Welcome to Ne'ma! Your journey to reduce food waste begins now.",
+        description: "Welcome to Ma'roof! Your journey to reduce food waste begins now.",
       });
     } catch (error) {
       console.error("Registration error", error);
