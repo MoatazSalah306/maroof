@@ -143,7 +143,7 @@ const NavBar = () => {
 
         {/* Mobile menu */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 pt-2">
+          <div className="md:hidden py-4 pt-2 bg-white dark:bg-[#1B1918]">
             <nav className="flex flex-col space-y-4">
               <MobileNavLink to="/" onClick={() => setIsMenuOpen(false)}>Home</MobileNavLink>
               <MobileNavLink to="/about" onClick={() => setIsMenuOpen(false)}>About</MobileNavLink>
