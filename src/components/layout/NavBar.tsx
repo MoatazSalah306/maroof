@@ -48,13 +48,21 @@ const NavBar = () => {
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
-              <img
-                src="/images/logo.png"
-                alt="Ma'roof Logo"
-                className="h-10 w-auto" // Adjust size as needed
-              />
-          </Link>
+       <Link to="/" className="flex items-center gap-2">
+  {/* Light mode logo */}
+  <img
+    src="/images/logo-light.png"
+    alt="Ma'roof Logo Light"
+    className="h-10 w-auto dark:hidden"
+  />
+  {/* Dark mode logo */}
+  <img
+    src="/images/logo-dark.png"
+    alt="Ma'roof Logo Dark"
+    className="h-10 w-auto hidden dark:block"
+  />
+</Link>
+
 
           {/* Desktop Menu */}
           <nav className="hidden md:flex items-center gap-6">
@@ -102,7 +110,7 @@ const NavBar = () => {
             ) : (
               <div className="flex items-center gap-3">
                 <Link to="/login">
-                  <Button variant="outline">Login</Button>
+                  <Button variant="outline" >Login</Button>
                 </Link>
                 <Link to="/register">
                   <Button className="bg-maroof-green hover:bg-maroof-green/90">Join Us</Button>

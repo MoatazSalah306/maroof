@@ -48,106 +48,115 @@ const LoginForm = () => {
   };
 
   return (
-<div className="mx-auto w-full max-w-md p-6 rounded-lg border-l-2 border-maroof-green bg-white shadow-[0_4px_10px_rgba(29,185,84,0.2)]">
+<div className="mx-auto w-full max-w-md p-6 rounded-lg border-l-2 border-maroof-green bg-white shadow-[0_4px_10px_rgba(29,185,84,0.2)] dark:bg-[#1B1918] dark:border-maroof-teal dark:shadow-[0_4px_10px_rgba(29,185,84,0.15)]">
+  <div className="mb-6 text-center">
+    <h2 className="text-2xl font-bold text-foreground dark:text-white">Welcome Back</h2>
+    <p className="mt-2 text-muted-foreground dark:text-gray-400">
+      Sign in to your Ma'roof account
+    </p>
+  </div>
 
-      <div className="mb-6 text-center">
-        <h2 className="text-2xl font-bold text-foreground">Welcome Back</h2>
-        <p className="mt-2 text-muted-foreground">
-          Sign in to your Ma'roof account
-        </p>
+  <Form {...form}>
+    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+      {/* Email Field */}
+      <FormField
+        control={form.control}
+        name="email"
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel className="dark:text-white">Email</FormLabel>
+            <FormControl>
+              <Input
+                placeholder="your@email.com"
+                autoComplete="email"
+                disabled={isLoading}
+                className="dark:bg-[#1B1918] dark:text-white dark:border-gray-700"
+                {...field}
+              />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
+
+      {/* Password Field */}
+      <FormField
+        control={form.control}
+        name="password"
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel className="dark:text-white">Password</FormLabel>
+            <FormControl>
+              <div className="relative">
+                <Input
+                  type={showPassword ? "text" : "password"}
+                  placeholder="••••••••"
+                  autoComplete="current-password"
+                  disabled={isLoading}
+                  className="dark:bg-[#1B1918] dark:text-white dark:border-gray-700"
+                  {...field}
+                />
+                <Button
+                  type="button"
+                  variant="ghost"
+                  size="sm"
+                  className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent text-sm dark:text-gray-300"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? "Hide" : "Show"}
+                </Button>
+              </div>
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
+
+      {/* Forgot Password Link */}
+      <div className="flex items-center justify-between">
+        <Link
+          to="/forgot-password"
+          className="text-sm font-medium text-maroof-teal hover:text-maroof-green dark:text-maroof-green"
+        >
+          Forgot password?
+        </Link>
       </div>
 
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-          <FormField
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Email</FormLabel>
-                <FormControl>
-                  <Input
-                    placeholder="your@email.com"
-                    autoComplete="email"
-                    disabled={isLoading}
-                    {...field}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+      {/* Error Message */}
+      {error && <p className="text-destructive text-sm dark:text-red-400">{error}</p>}
 
-          <FormField
-            control={form.control}
-            name="password"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Password</FormLabel>
-                <FormControl>
-                  <div className="relative">
-                    <Input
-                      type={showPassword ? "text" : "password"}
-                      placeholder="••••••••"
-                      autoComplete="current-password"
-                      disabled={isLoading}
-                      {...field}
-                    />
-                    <Button
-                      type="button"
-                      variant="ghost"
-                      size="sm"
-                      className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
-                      onClick={() => setShowPassword(!showPassword)}
-                    >
-                      {showPassword ? "Hide" : "Show"}
-                    </Button>
-                  </div>
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+      {/* Submit Button */}
+      <Button
+        type="submit"
+        className="w-full bg-maroof-green hover:bg-maroof-green/90"
+        disabled={isLoading}
+      >
+        {isLoading ? "Signing in..." : "Sign in"}
+      </Button>
 
-          <div className="flex items-center justify-between">
-            <Link
-              to="/forgot-password"
-              className="text-sm font-medium text-maroof-teal hover:text-maroof-green"
-            >
-              Forgot password?
-            </Link>
-          </div>
-
-          {error && <p className="text-destructive text-sm">{error}</p>}
-
-          <Button
-            type="submit"
-            className="w-full bg-maroof-green hover:bg-maroof-green/90"
-            disabled={isLoading}
+      {/* Sign Up Link */}
+      <div className="text-center mt-4">
+        <p className="text-sm text-muted-foreground dark:text-gray-400">
+          Don't have an account?{" "}
+          <Link
+            to="/register"
+            className="font-medium text-maroof-teal hover:text-maroof-green dark:text-maroof-green"
           >
-            {isLoading ? "Signing in..." : "Sign in"}
-          </Button>
-
-          <div className="text-center mt-4">
-            <p className="text-sm text-muted-foreground">
-              Don't have an account?{" "}
-              <Link
-                to="/register"
-                className="font-medium text-maroof-teal hover:text-maroof-green"
-              >
-                Sign up
-              </Link>
-            </p>
-          </div>
-        </form>
-      </Form>
-
-      <div className="mt-6 border-t border-border pt-4">
-        <p className="text-center text-xs text-muted-foreground">
-          For demo, use email: demo@example.com and password: password
+            Sign up
+          </Link>
         </p>
       </div>
-    </div>
+    </form>
+  </Form>
+
+  {/* Demo Credentials Note */}
+  <div className="mt-6 border-t border-border pt-4 dark:border-gray-700">
+    <p className="text-center text-xs text-muted-foreground dark:text-gray-500">
+      For demo, use email: demo@example.com and password: password
+    </p>
+  </div>
+</div>
+
   );
 };
 

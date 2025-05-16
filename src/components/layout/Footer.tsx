@@ -10,9 +10,14 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-bold text-maroof-green mb-4">
                <img
-                src="/images/logo.png"
+                src="/images/logo-light.png"
                 alt="Ma'roof Logo"
-                className="h-10 w-auto" // Adjust size as needed
+                className="h-10 w-auto dark:hidden" // Adjust size as needed
+              />
+              <img
+                src="/images/logo-dark.png"
+                alt="Ma'roof Logo"
+                className="h-10 w-auto hidden dark:block" // Adjust size as needed
               />
             </h3>
             <p className="text-foreground mb-4">

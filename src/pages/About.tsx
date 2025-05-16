@@ -7,31 +7,26 @@ const About = () => {
       name: "Moataz Salah",
       role: "Team Member",
       image: "/images/team/moataz.jpg",
-      bio: "Ahmed founded Ma'roof with a vision to reduce food waste while supporting communities in need."
+    },
+    {
+      name: "Mohamed Helmy",
+      role: "Team Member",
+      image: "/images/team/helmy.jpg",
     },
     {
       name: "Kareem Hossam",
-      role: "Head of Operations",
-      image: "/images/team/helmy.jpg",
-      bio: "Sara oversees all donation operations and ensures efficient distribution to those in need."
-    },
-    {
-      name: "Mohammed Helmy",
-      role: "Technology Director",
+      role: "Team Member",
       image: "/images/team/kareem.jpg",
-      bio: "Mohammed built the platform's technology foundation and leads digital innovation efforts."
     },
     {
-      name: "Fatima Ali",
-      role: "Community Engagement",
-      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300&auto=format&fit=crop",
-      bio: "Fatima builds relationships with communities and organizations to expand our impact."
+      name: "Mohamed Atef",
+      role: "Team Member",
+      image: "/images/team/mox.jpg",
     },
     {
-      name: "Omar Khalid",
-      role: "Sustainability Expert",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&auto=format&fit=crop",
-      bio: "Omar develops sustainability strategies and educational content for our users."
+      name: "Kareem Diaa",
+      role: "Team Member",
+      image: "/images/team//kdiaa.jpg",
     }
   ];
 
@@ -108,10 +103,9 @@ const About = () => {
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                 />
               </div>
-              <CardContent className="p-6">
+              <CardContent className="p-6 text-center">
                 <h3 className="text-xl font-bold">{member.name}</h3>
                 <p className="text-maroof-green font-medium mb-3">{member.role}</p>
-                <p className="text-muted-foreground">{member.bio}</p>
               </CardContent>
             </Card>
           ))}
