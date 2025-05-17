@@ -185,7 +185,7 @@ const RewardCard = ({ reward, userPoints }) => {
   const isAffordable = userPoints >= reward.pointsCost;
   
   return (
-    <Card className="transition-all duration-300 hover:shadow-md">
+    <Card className="transition-all duration-300 hover:shadow-md flex flex-col h-full">
       <CardHeader>
         <div className="bg-gradient-to-br from-card to-maroof-green/5 h-14 w-14 rounded-full flex items-center justify-center mx-auto mb-2">
           {reward.icon}
@@ -197,10 +197,10 @@ const RewardCard = ({ reward, userPoints }) => {
           </Badge>
         </div>
       </CardHeader>
-      <CardContent>
+      <CardContent className="flex-grow">
         <p className="text-muted-foreground text-center">{reward.description}</p>
       </CardContent>
-      <CardFooter className="flex justify-center pb-6">
+      <CardFooter className="flex justify-center pb-6 mt-auto">
         <Button
           className={isAffordable ? "bg-maroof-green hover:bg-maroof-green/90" : "bg-muted text-muted-foreground"}
           disabled={!isAffordable}
