@@ -8,10 +8,10 @@ const About = () => {
       role: "Team Member",
       image: "/images/team/moataz.jpg",
     },
-    {
-      name: "Mohamed Helmy",
+     {
+      name: "Kareem Diaa",
       role: "Team Member",
-      image: "/images/team/helmy.jpg",
+      image: "/images/team//kdiaa.jpg",
     },
     {
       name: "Kareem Hossam",
@@ -24,10 +24,10 @@ const About = () => {
       image: "/images/team/mox.jpg",
     },
     {
-      name: "Kareem Diaa",
+      name: "Mohamed Helmy",
       role: "Team Member",
-      image: "/images/team//kdiaa.jpg",
-    }
+      image: "/images/team/helmy.jpg",
+    },
   ];
 
   return (
@@ -91,7 +91,7 @@ const About = () => {
             The passionate individuals behind Ma'roof
           </p>
         </div>
-
+{/* 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {teamMembers.map((member) => (
             <Card key={member.name} className="overflow-hidden">
@@ -108,7 +108,26 @@ const About = () => {
               </CardContent>
             </Card>
           ))}
-        </div>
+        </div> */}
+<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+  {teamMembers.map((member) => (
+    <Card key={member.name} className="overflow-hidden shadow-md">
+      <div className="aspect-[4/3] overflow-hidden">
+        <img 
+          src={member.image} 
+          alt={member.name} 
+          className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+        />
+      </div>
+      <CardContent className="p-6 text-center">
+        <h3 className="text-xl font-bold">{member.name}</h3>
+        <p className="text-maroof-green font-medium mb-3">{member.role}</p>
+      </CardContent>
+    </Card>
+  ))}
+</div>
+
+
       </div>
 
       {/* <div className="bg-maroof-green/10 rounded-2xl p-8 md:p-12 mb-16">

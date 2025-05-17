@@ -56,7 +56,7 @@ export default {
 				maroof: {
 					green: '#1DB954', // Updated to less-light green
 					orange: '#F39237',
-					teal: '#2F7A73', // Reverted to original teal color
+					teal: '#359F6F', // Reverted to original teal color
 					cream: '#F7F3E3',
 					brown: '#A27035',
 					

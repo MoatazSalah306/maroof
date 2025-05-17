@@ -69,6 +69,7 @@ const NavBar = () => {
             <NavLink to="/" active={location.pathname === "/"}>Home</NavLink>
             <NavLink to="/about" active={location.pathname === "/about"}>About</NavLink>
             <NavLink to="/donate" active={location.pathname === "/donate"}>Donate Food</NavLink>
+            <NavLink to="/rewards" active={location.pathname === "/rewards"}>Rewards</NavLink>
             <NavLink to="/learn" active={location.pathname === "/learn"}>Learn</NavLink>
             <NavLink to="/impact" active={location.pathname === "/impact"}>Our Impact</NavLink>
           </nav>
@@ -148,6 +149,7 @@ const NavBar = () => {
               <MobileNavLink to="/" onClick={() => setIsMenuOpen(false)}>Home</MobileNavLink>
               <MobileNavLink to="/about" onClick={() => setIsMenuOpen(false)}>About</MobileNavLink>
               <MobileNavLink to="/donate" onClick={() => setIsMenuOpen(false)}>Donate Food</MobileNavLink>
+              <MobileNavLink to="/rewards" onClick={() => setIsMenuOpen(false)}>Rewards</MobileNavLink>
               <MobileNavLink to="/learn" onClick={() => setIsMenuOpen(false)}>Learn</MobileNavLink>
               <MobileNavLink to="/impact" onClick={() => setIsMenuOpen(false)}>Our Impact</MobileNavLink>
               
