@@ -23,7 +23,7 @@
     --muted: 60 10% 96%;
     --muted-foreground: 25 5% 45%;
 
-    --accent: 182 60% 45%; /* Changed to match the new teal #38B2AC */
+    --accent: 174 48% 31%; /* Reverted back to original teal */
     --accent-foreground: 355 100% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -55,7 +55,7 @@
     --muted: 20 6% 16%;
     --muted-foreground: 60 15% 75%;
 
-    --accent: 182 70% 50%; /* Brightened for dark mode */
+    --accent: 174 48% 31%; /* Reverted back to original teal */
     --accent-foreground: 355 100% 100%;
 
     --destructive: 0 62.8% 30.6%;

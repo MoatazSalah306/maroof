@@ -190,8 +190,8 @@ const NavLink = ({ to, active, children }: { to: string; active: boolean; childr
   return (
     <Link
       to={to}
-      className={`text-base font-medium transition-colors hover:text-accent ${
-        active ? "text-accent" : "text-foreground"
+      className={`text-base font-medium transition-colors hover:text-maroof-green ${
+        active ? "text-maroof-green" : "text-foreground"
       }`}
     >
       {children}
@@ -204,7 +204,7 @@ const MobileNavLink = ({ to, onClick, children }: { to: string; onClick: () => v
   return (
     <Link
       to={to}
-      className="text-base font-medium text-foreground hover:text-accent transition-colors"
+      className="text-base font-medium text-foreground hover:text-maroof-green transition-colors"
       onClick={onClick}
     >
       {children}
