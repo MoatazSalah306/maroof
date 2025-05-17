@@ -23,7 +23,8 @@ import {
 } from "@/components/ui/select";
 import { useAuth } from "@/lib/auth.context";
 import { Checkbox } from "@/components/ui/checkbox";
-import { useAppSelector } from "@/redux/hooks";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { addUserPoints } from "@/redux/slices/authSlice";
 
 const registerSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -46,6 +47,7 @@ const RegisterForm = () => {
   const { register } = useAuth();
   const { isLoading, error } = useAppSelector(state => state.auth);
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
   const [searchParams] = useSearchParams();
   const [showPassword, setShowPassword] = useState(false);
 
@@ -73,6 +75,10 @@ const RegisterForm = () => {
         },
         data.password
       );
+
+        // Add activity and points
+            
+            dispatch(addUserPoints(20));
       navigate("/dashboard");
     } catch (err) {
       console.error("Registration submission error:", err);

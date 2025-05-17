@@ -173,7 +173,7 @@ const ResourceGrid = ({ resources, completedIds }: ResourceGridProps) => {
           <CardFooter>
             <Link to={`/learn/${resource.id}`} className="w-full">
               <Button 
-                className="w-full bg-maroof-teal hover:bg-maroof-teal/90"
+                className="w-full text-white bg-maroof-teal hover:bg-maroof-teal/90"
                 variant={completedIds.includes(resource.id) ? "outline" : "default"}
               >
                 {completedIds.includes(resource.id) ? "View Again" : "Start Learning"}

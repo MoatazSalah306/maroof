@@ -78,8 +78,7 @@ const About = () => {
             </div>
             <h3 className="text-xl font-semibold">Our Impact</h3>
             <p className="text-muted-foreground">
-              Since our founding, we've rescued over 2.5 tons of food, provided 12,000+ meals, 
-              and built a community of 5,000+ active users.
+            We're working towards rescuing over 2.5 tons of food, providing 12,000+ meals, and building a community of 5,000+ active users.
             </p>
           </CardContent>
         </Card>
@@ -112,7 +111,7 @@ const About = () => {
         </div>
       </div>
 
-      <div className="bg-maroof-green/10 rounded-2xl p-8 md:p-12 mb-16">
+      {/* <div className="bg-maroof-green/10 rounded-2xl p-8 md:p-12 mb-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div>
             <h2 className="text-2xl md:text-3xl font-bold mb-4">Our Journey</h2>
@@ -155,7 +154,7 @@ const About = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
