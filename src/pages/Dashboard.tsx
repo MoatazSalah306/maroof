@@ -5,7 +5,7 @@ import UserStats from "@/components/dashboard/UserStats";
 import ActivityFeed from "@/components/dashboard/ActivityFeed";
 import DonationsList from "@/components/dashboard/DonationsList";
 import { Button } from "@/components/ui/button";
-import { Plus, BookOpen } from "lucide-react";
+import { Plus, BookOpen, Gift } from "lucide-react";
 
 const Dashboard = () => {
   const { user } = useAppSelector(state => state.auth);
@@ -23,6 +23,11 @@ const Dashboard = () => {
           <Link to="/donate">
             <Button className="bg-maroof-orange hover:bg-maroof-orange/90">
               <Plus className="mr-2 h-4 w-4" /> Create Donation
+            </Button>
+          </Link>
+          <Link to="/rewards">
+            <Button variant="outline" className="border-maroof-green text-maroof-green hover:bg-maroof-green/10">
+              <Gift className="mr-2 h-4 w-4" /> View Rewards
             </Button>
           </Link>
           <Link to="/learn">

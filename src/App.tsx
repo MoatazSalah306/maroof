@@ -16,6 +16,7 @@ import EducationResource from "./pages/EducationResource";
 import Profile from "./pages/Profile";
 import Impact from "./pages/Impact";
 import About from "./pages/About";
+import Rewards from "./pages/Rewards";
 import RequireAuth from "./components/auth/RequireAuth";
 
 const queryClient = new QueryClient();
@@ -46,6 +47,7 @@ const App = () => (
                 <Profile />
               </RequireAuth>
             } />
+            <Route path="rewards" element={<Rewards />} />
             <Route path="impact" element={<Impact />} />
             <Route path="about" element={<About />} />
           </Route>
