@@ -115,7 +115,7 @@ const ResourceGrid = ({ resources, completedIds }: ResourceGridProps) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {resources.map((resource) => (
-        <Card key={resource.id} className="overflow-hidden hover:shadow-md transition-shadow">
+        <Card key={resource.id} className="overflow-hidden hover:shadow-md transition-shadow flex flex-col h-full">
           <div className="relative">
             {resource.thumbnailUrl ? (
               <div className="h-48 overflow-hidden">
@@ -149,7 +149,7 @@ const ResourceGrid = ({ resources, completedIds }: ResourceGridProps) => {
             <CardDescription className="line-clamp-2">{resource.description}</CardDescription>
           </CardHeader>
           
-          <CardContent>
+          <CardContent className="flex-grow">
             <div className="flex items-center justify-between text-sm text-muted-foreground mb-3">
               <div className="flex items-center">
                 <Clock className="w-4 h-4 mr-1" />
@@ -170,7 +170,7 @@ const ResourceGrid = ({ resources, completedIds }: ResourceGridProps) => {
             </div>
           </CardContent>
           
-          <CardFooter>
+          <CardFooter className="mt-auto">
             <Link to={`/learn/${resource.id}`} className="w-full">
               <Button 
                 className="w-full text-white bg-maroof-teal hover:bg-maroof-teal/90"

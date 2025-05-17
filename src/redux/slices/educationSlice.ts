@@ -65,7 +65,7 @@ const initialState: EducationState = {
       type: "quiz",
       duration: 10,
       points: 30,
-      thumbnailUrl: "https://www.proprofs.com/quiz-school/upload/yuiupload/1452929111.jpg",
+      thumbnailUrl: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?auto=format&fit=crop&w=800&q=80",
       content: "https://www.proprofs.com/quiz-school/story.php?title=food-waste-facts-shortenedds",
       tags: ["quiz", "knowledge test", "learning"],
       completedBy: []
