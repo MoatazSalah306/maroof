@@ -48,20 +48,20 @@ const NavBar = () => {
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           {/* Logo */}
-       <Link to="/" className="flex items-center gap-2">
-  {/* Light mode logo */}
-  <img
-    src="/images/logo-light.png"
-    alt="Ma'roof Logo Light"
-    className="h-10 w-auto dark:hidden"
-  />
-  {/* Dark mode logo */}
-  <img
-    src="/images/logo-dark.png"
-    alt="Ma'roof Logo Dark"
-    className="h-10 w-auto hidden dark:block"
-  />
-</Link>
+          <Link to="/" className="flex items-center gap-2">
+            {/* Light mode logo */}
+            <img
+              src="/images/logo-light.png"
+              alt="Ma'roof Logo Light"
+              className="h-10 w-auto dark:hidden"
+            />
+            {/* Dark mode logo */}
+            <img
+              src="/images/logo-dark.png"
+              alt="Ma'roof Logo Dark"
+              className="h-10 w-auto hidden dark:block"
+            />
+          </Link>
 
 
           {/* Desktop Menu */}
@@ -190,8 +190,8 @@ const NavLink = ({ to, active, children }: { to: string; active: boolean; childr
   return (
     <Link
       to={to}
-      className={`text-base font-medium transition-colors hover:text-maroof-green ${
-        active ? "text-maroof-green" : "text-foreground"
+      className={`text-base font-medium transition-colors hover:text-accent ${
+        active ? "text-accent" : "text-foreground"
       }`}
     >
       {children}
@@ -204,7 +204,7 @@ const MobileNavLink = ({ to, onClick, children }: { to: string; onClick: () => v
   return (
     <Link
       to={to}
-      className="text-base font-medium text-foreground hover:text-maroof-green transition-colors"
+      className="text-base font-medium text-foreground hover:text-accent transition-colors"
       onClick={onClick}
     >
       {children}

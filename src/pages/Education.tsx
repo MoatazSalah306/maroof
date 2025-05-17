@@ -131,7 +131,7 @@ const ResourceGrid = ({ resources, completedIds }: ResourceGridProps) => {
               </div>
             )}
             
-            <Badge className="absolute top-2 right-2 capitalize bg-maroof-teal hover:bg-maroof-teal/90">
+            <Badge className="absolute top-2 right-2 capitalize bg-accent hover:bg-accent/90">
               {resource.type}
             </Badge>
             
@@ -173,7 +173,7 @@ const ResourceGrid = ({ resources, completedIds }: ResourceGridProps) => {
           <CardFooter className="mt-auto">
             <Link to={`/learn/${resource.id}`} className="w-full">
               <Button 
-                className="w-full text-white bg-maroof-teal hover:bg-maroof-teal/90"
+                className="w-full text-white bg-accent hover:bg-accent/90"
                 variant={completedIds.includes(resource.id) ? "outline" : "default"}
               >
                 {completedIds.includes(resource.id) ? "View Again" : "Start Learning"}
