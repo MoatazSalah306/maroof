@@ -1,4 +1,4 @@
-# Food and Clothes Waste Reduction Initiative Platform
+# Food and Clothes Waste Reduction Initiative Platform "Ma'roof"
 
 ## Overview
 
